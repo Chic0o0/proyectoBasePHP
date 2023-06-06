@@ -4,7 +4,7 @@ use App\app;
 
 $pdo = (new App())->redundantConnection();
 if ($pdo != null)
-    echo 'Code 200 --success';
+    echo '<h1>Code 200 --success</h1>';
 else
-    echo 'Code 500 --failure';
+    echo '<h1>Code 500 --failure</h1>';
 ?>

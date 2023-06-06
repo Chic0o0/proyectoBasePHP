@@ -11,11 +11,4 @@ class SQLiteConnection {
         }
         return $this->pdo;
     }
-
-    //Handle exceptions
-    // try {
-    //     $this->pdo = new \PDO("sqlite:" . Config::PATH_TO_SQLITE_FILE);
-    //  } catch (\PDOException $e) {
-    //     // handle the exception here
-    //  }
 }
