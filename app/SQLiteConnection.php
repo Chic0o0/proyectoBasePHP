@@ -7,7 +7,7 @@ class SQLiteConnection {
     //connection string: sqlite:db/phpsqlite.db
     public function connect() {
         if ($this->pdo == null) {
-            $this->pdo = new \PDO("sqlite:" . Config::SQLITE_PATH);
+            $this->pdo = new \PDO("sqlite:".Config::SQLITE_PATH);
         }
         return $this->pdo;
     }
