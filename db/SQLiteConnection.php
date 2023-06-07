@@ -1,5 +1,6 @@
 <?php
 namespace App;
+include "..\config.php";
 
 class SQLiteConnection {
     private $pdo;

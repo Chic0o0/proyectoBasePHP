@@ -1,5 +1,6 @@
 <?php
 namespace App;
+include "..\db\SQLiteConnection.php";
 
 class App{
 	public function redundantConnection(){
