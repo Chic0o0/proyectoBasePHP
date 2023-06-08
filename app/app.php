@@ -1,6 +1,7 @@
 <?php
 namespace App;
-include "..\db\SQLiteConnection.php";
+require_once "..\db\SQLiteConnection.php";
+require_once '../logic/router.php';
 
 class App{
 	public function redundantConnection(){

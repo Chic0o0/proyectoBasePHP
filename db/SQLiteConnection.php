@@ -1,11 +1,11 @@
 <?php
 namespace App;
-include "..\config.php";
+require_once "..\config.php";
 
 class SQLiteConnection {
     private $pdo;
 
-    //connection string: sqlite:db/phpsqlite.db
+    //connection string: sqlite:phpsqlite.db
     public function connect() {
         if ($this->pdo == null) {
             $this->pdo = new \PDO("sqlite:".Config::SQLITE_PATH);
