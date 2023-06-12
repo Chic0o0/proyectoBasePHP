@@ -4,6 +4,5 @@
     integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" 
     crossorigin="anonymous">
 <?php
-require_once '..\vendor\autoload.php';
 require_once __DIR__ . '\..\app\app.php';
 ?>

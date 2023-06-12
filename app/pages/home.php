@@ -1,3 +1,3 @@
-<div class="pure-g">
+<div>
     <h1>Welcome</h1>
 </div>

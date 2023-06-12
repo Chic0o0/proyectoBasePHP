@@ -15,6 +15,7 @@ class App{
 		return $pdo;
 	}
 
+	//Will make a function that renders all the page structure (structure()) so that only it is called
 }
 
 $pdo = (new App())->redundantConnection();
