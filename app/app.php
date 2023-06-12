@@ -6,7 +6,7 @@ require_once '..\logic\router.php';
 class App{
 
 	public function routing(){
-		$router = (new Router())->router($_SERVER['REQUEST_URI']);
+		$router = (new Router())->router();
 		return $router;
 	}
 	
@@ -14,4 +14,8 @@ class App{
 		$pdo = (new SQLiteConnection())->connect();
 		return $pdo;
 	}
+
 }
+
+$pdo = (new App())->redundantConnection();
+$routing = (new App())->routing();

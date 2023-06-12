@@ -1,15 +1,15 @@
 <?php
 namespace App;
 class Router{
-    function router($url){
-        switch ($url) {
+    function router(){
+        switch ($_SERVER['REQUEST_URI']) {
             case '':
             case '/':
-                require __DIR__ . '\..\public\index.php';
+                require __DIR__ . '\..\app\pages\home.php';
                 break;
         
-            case '/home':
-                require __DIR__ . '\..\app\pages\home.php';
+            case '/about':
+                require __DIR__ . '\..\app\pages\about.php';
                 break;
         
             default:
