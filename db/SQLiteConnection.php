@@ -17,6 +17,14 @@ class SQLiteConnection {
     }
 
     public function createUser(object $userData){
-        
+        try{
+            $pdo->beginTransaction();
+            $pdo->exec("insert into usuarios (name, surname, age, email, phone)
+                values ($userData->name, $userData->surname, $userData->age, $userData->email, $userData->phone)");
+            //some integrity checks in the future
+            $pdo->commit();
+        } catch(Exception $e){
+            die('Error de conexión: ' .$e->getMessage());
+        }
     }
 }

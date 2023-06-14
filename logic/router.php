@@ -11,6 +11,10 @@ class Router{
             case '/about':
                 require __DIR__ . '\..\app\pages\about.php';
                 break;
+
+            case '/register':
+                require __DIR__ . '\..\app\pages\register.php';
+                break;
         
             default:
                 http_response_code(404);
