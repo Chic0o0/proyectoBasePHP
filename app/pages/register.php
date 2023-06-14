@@ -1,6 +1,6 @@
 <div>
-    <h1>Register your body aqui mismo</h1>
-    <form action="../app.php" method="post">
+    <h1>Register your body aquí mismo</h1>
+    <form action="/" method="post">
         <p>Name:  <input type="text" name="name"/></p>
         <p>Surname:  <input type="text" name="surname"/></p>
         <p>Age:  <input type="text" name="age"/></p>

@@ -1,24 +1,24 @@
 <?php
 namespace App;
 class Router{
-    function router(){
+    public function router(){
         switch ($_SERVER['REQUEST_URI']) {
             case '':
             case '/':
-                require __DIR__ . '\..\app\pages\home.php';
+                require_once __DIR__ . '\..\app\pages\home.php';
                 break;
         
             case '/about':
-                require __DIR__ . '\..\app\pages\about.php';
+                require_once __DIR__ . '\..\app\pages\about.php';
                 break;
 
             case '/register':
-                require __DIR__ . '\..\app\pages\register.php';
+                require_once __DIR__ . '\..\app\pages\register.php';
                 break;
         
             default:
                 http_response_code(404);
-                require __DIR__ . '\..\app\pages\404.php';
+                require_once __DIR__ . '\..\app\pages\404.php';
                 break;
         }
     }
