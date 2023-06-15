@@ -1,7 +1,7 @@
 <?php
 namespace App;
-require_once "..\db\SQLiteConnection.php";
 require_once '..\logic\router.php';
+require_once "..\db\SQLiteConnection.php";
 ?>
 
 <head>
@@ -26,6 +26,6 @@ class App{
 }
 
 $routing = (new App())->routing();
-$pdo = (new App())->connecting();
+$pdoing = (new App())->connecting();
 
 require_once __DIR__ . '\..\app\pages\footer.php';

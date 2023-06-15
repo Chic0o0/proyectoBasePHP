@@ -18,11 +18,11 @@ class Router{
                 require_once __DIR__ . '\..\app\pages\register.php';
                 break;
 
-            //Handling logic
+            //Handling logic PUBLIC ROUTER SHOULD NOT BE USED TO ENROUTE LOGIC
             case '/registerLogic':
                 require_once __DIR__ . '\..\logic\pages\registerLogic.php';
                 break;
-        
+                
             //404 not fount page
             default:
                 http_response_code(404);

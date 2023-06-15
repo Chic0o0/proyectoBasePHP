@@ -2,7 +2,7 @@
 namespace App;
 require_once "..\config.php";
 
-class SQLiteConnection {
+class SQLiteConnection{
     private $pdo;
 
     public function connect() {
