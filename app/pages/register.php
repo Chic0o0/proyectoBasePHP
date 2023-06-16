@@ -5,7 +5,7 @@
         <label>Password: <input type="password" name="password" pattern=".{8,}"  title="Eight or more characters" required/></label></br>
         <label>Name: <input type="text" name="name" required/></label></br>
         <label>Surname: <input type="text" name="surname"/></label></br>
-        <label>Age: <input type="text" name="age"/></label></br>
+        <label>Age: <input type="number" name="age"/></label></br>
         <label>Phone: <input type="tel" name="phone" pattern="[0-9]{9}"/></label></br>
         <label><input type="submit" name="submit" value="Submit me!"/></label></br>
     </form>
