@@ -7,7 +7,7 @@ require_once "..\db\SQLiteConnection.php";
 try {
     $registerUser=new User(
         htmlspecialchars($_POST["email"]),
-        htmlspecialchars($_POST["password"]),
+        password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT),
         htmlspecialchars($_POST["name"]),
         htmlspecialchars($_POST["surname"]),
         htmlspecialchars($_POST["age"]),
