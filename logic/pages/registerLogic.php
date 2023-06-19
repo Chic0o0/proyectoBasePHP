@@ -4,10 +4,8 @@ namespace App;
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 
-class registerLogic extends User{}
-
 try {
-    $registerUser=new registerLogic(
+    $registerUser=new User(
         htmlspecialchars($_POST["email"]),
         htmlspecialchars($_POST["password"]),
         htmlspecialchars($_POST["name"]),
@@ -18,10 +16,10 @@ try {
 } catch (Exception $e) {
     echo "Error: ".$e->getmessage();
 }
-
 try {
     $db=new SQLiteConnection();
     $db->createUser($registerUser);
 } catch (Exception $e) {
+    //willDo handling for UNIQUE error exception
     echo "Error: ".$e->getMessage();
 }
