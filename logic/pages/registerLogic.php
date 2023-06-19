@@ -4,11 +4,7 @@ namespace App;
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 
-class registerLogic extends User{
-    public function __construct($email, $password, $name, $surname, int $age, int $phone) {
-        parent::__construct($email, $password, $name, $surname, $age, $phone);
-    }
-}
+class registerLogic extends User{}
 
 try {
     $registerUser=new registerLogic(
@@ -17,19 +13,17 @@ try {
         htmlspecialchars($_POST["name"]),
         htmlspecialchars($_POST["surname"]),
         htmlspecialchars($_POST["age"]),
-        htmlspecialchars($_POST["phone"]),
+        htmlspecialchars($_POST["phone"])
     );
 } catch (Exception $e) {
     echo "Error: ".$e->getmessage();
 }
 
-var_dump($registerUser);
-
-//willDo
-// try {
-//     $pdo=new SQLiteConnection();
-//     $pdo->connect();
-//     $pdo->createUser($registerUser);
-// } catch (Exception $e) {
-//     echo "Error: ".$e->getMessage();
-// }
+try {
+    $pdo=new SQLiteConnection();
+    $pdo->connect();
+    $pdo->createUser($registerUser);
+    unset($pdo);
+} catch (Exception $e) {
+    echo "Error: ".$e->getMessage();
+}
