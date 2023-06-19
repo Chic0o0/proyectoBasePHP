@@ -20,10 +20,8 @@ try {
 }
 
 try {
-    $pdo=new SQLiteConnection();
-    $pdo->connect();
-    $pdo->createUser($registerUser);
-    unset($pdo);
+    $db=new SQLiteConnection();
+    $db->createUser($registerUser);
 } catch (Exception $e) {
     echo "Error: ".$e->getMessage();
 }

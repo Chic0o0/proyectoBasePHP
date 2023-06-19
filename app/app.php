@@ -12,13 +12,6 @@ require_once '..\logic\router.php';
 <?php
 require_once __DIR__ . '\..\app\pages\header.php';
 
-class App{
-	public function routing(){
-		$router = (new Router())->router();
-		return $router;
-	}
-}
-
-$routing = (new App())->routing();
+$routing = (new Router())->router();
 
 require_once __DIR__ . '\..\app\pages\footer.php';

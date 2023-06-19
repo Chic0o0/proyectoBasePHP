@@ -16,13 +16,19 @@ class SQLiteConnection{
         return $this->pdo;
     }
 
+    public function disconnect(){
+        unset($this->pdo);
+    }
+
     public function createUser(object $userData){
         try{
+            $this->connect();
             $sql = "INSERT INTO users (email, password, name, surname, age, phone) VALUES (?,?,?,?,?,?)";
             $this->pdo->beginTransaction();
             $this->pdo->prepare($sql)->execute([$userData->getEmail(), $userData->getPassword(),
                 $userData->getName(), $userData->getSurname(), $userData->getAge(), $userData->getPhone()]);
             $this->pdo->commit();
+            $this->disconnect();
         } catch(Exception $e){
             die('Error de conexión: ' .$e->getMessage());
         }
