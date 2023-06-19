@@ -1,6 +1,6 @@
 <div>
-    <h1>Register your body aquí mismo</h1>
-    <form action="registerLogic" method="post">
+    <h1>Sign up your body aquí mismo</h1>
+    <form action="signupLogic" method="post">
         <label>Email: <input type="email" name="email"  pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required/></label></br>
         <label>Password: <input type="password" name="password" pattern=".{8,}"  title="Eight or more characters" required/></label></br>
         <label>Name: <input type="text" name="name" required/></label></br>

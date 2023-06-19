@@ -14,13 +14,17 @@ class Router{
                 require_once __DIR__ . '\..\app\pages\about.php';
                 break;
 
-            case '/register':
-                require_once __DIR__ . '\..\app\pages\register.php';
+            case '/signup':
+                require_once __DIR__ . '\..\app\pages\signup.php';
+                break;
+
+            case '/login':
+                require_once __DIR__ . '\..\app\pages\login.php';
                 break;
 
             //Handling logic PUBLIC ROUTER SHOULD NOT BE USED TO ENROUTE LOGIC
-            case '/registerLogic':
-                require_once __DIR__ . '\..\logic\pages\registerLogic.php';
+            case '/signupLogic':
+                require_once __DIR__ . '\..\logic\pages\signupLogic.php';
                 break;
                 
             //404 not fount page

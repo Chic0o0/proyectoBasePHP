@@ -5,7 +5,7 @@ require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 
 try {
-    $registerUser=new User(
+    $signupUser=new User(
         htmlspecialchars($_POST["email"]),
         password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT),
         htmlspecialchars($_POST["name"]),
@@ -18,8 +18,11 @@ try {
 }
 try {
     $db=new SQLiteConnection();
-    $db->createUser($registerUser);
+    $db->createUser($signupUser);
 } catch (Exception $e) {
     //willDo handling for UNIQUE error exception
     echo "Error: ".$e->getMessage();
 }
+
+//willDo set session (new file?)
+header('Location: /');
