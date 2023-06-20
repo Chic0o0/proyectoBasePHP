@@ -9,6 +9,7 @@ class SQLiteConnection{
         if ($this->pdo == null) {
             try{
                 $this->pdo = new \PDO("sqlite:".Config::SQLITE_PATH);
+                $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             } catch (Exception $e){
                 die('Error de conexión: ' .$e->getMessage());
             }
@@ -21,6 +22,10 @@ class SQLiteConnection{
     }
 
     public function createUser(object $userData){
+        // $email=$userData->getEmail(); ...
+        // $dbsent->bindParam('1', $email, \PDO::PARAM_STR); ...
+        // $dbsent->execute();
+
         try{
             $this->connect();
             $sql = "INSERT INTO users (email, password, name, surname, age, phone) VALUES (?,?,?,?,?,?)";
@@ -34,17 +39,27 @@ class SQLiteConnection{
         }
     }
 
-    //willDo
-    // public function readUser(object $userData){
-    //     try{
-    //         $this->connect();
-    //         $sql = "SELECT (email, name, surname, age, phone) FROM users WHERE email=?";
-    //         $this->pdo->beginTransaction();
-    //         $this->pdo->prepare($sql)->execute([$userData->getEmail()]);
-    //         return $this->pdo;
-    //         $this->disconnect();
-    //     } catch(Exception $e){
-    //         die('Error de conexión: ' .$e->getMessage());
-    //     }
-    // }
+    public function readUser($email, $password){
+        try{
+            $this->connect();
+            $sql = "SELECT password FROM users where email=?";
+            $statement=$this->pdo->prepare($sql);
+            $statement->execute([$email]);
+            $row=$statement->fetch();
+            $auth=password_verify($password, $row["password"]);
+
+            if($auth){
+                $sql = "SELECT email, name, surname FROM users where email=?";
+                $statement=$this->pdo->prepare($sql);
+                $statement->execute([$email]);
+                $row=array_unique($statement->fetch());
+                return $row;
+            } else {
+                echo("Incorerct credentials");
+            }
+            $this->disconnect();
+        } catch(Exception $e){
+            die('Error de conexión: ' .$e->getMessage());
+        }
+    }
 }

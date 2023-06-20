@@ -36,4 +36,23 @@ class User{
     public function getPhone(){
         return $this->phone;
     }
+    
+    public function setEmail(){
+        $this->email=$email;
+    }
+    public function setPassword(){
+        $this->password=password;
+    }
+    public function setName(){
+        $this->name=name;
+    }
+    public function setSurname(){
+        $this->surname=surname;
+    }
+    public function setAge(){
+        $this->age;
+    }
+    public function setPhone(){
+        $this->phone;
+    }
 }
