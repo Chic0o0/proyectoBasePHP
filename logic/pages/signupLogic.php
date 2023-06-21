@@ -18,15 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     } catch (Exception $e) {
         echo "Error: ".$e->getmessage();
     }
-    
+
     try {
         $db=new SQLiteConnection();
         $db->createUser($signupUser);
     } catch (Exception $e) {
-        //willDo handling for UNIQUE error exception
+        //willDo good error handling
         echo "Error: ".$e->getmessage();
     }
+    //willDo set session (new file?)
     unset($signupUser);
 }
-//willDo set session (new file?)
 header('Location: /');

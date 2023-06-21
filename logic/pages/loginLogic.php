@@ -4,7 +4,6 @@ namespace App;
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 
-//willDo fetch data from database
 if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     try {
@@ -14,20 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         //willDo handling for UNIQUE error exception
         echo "Error: ".$e->getmessage();
     }
-
+    
     //willDo set data
     try {
-        var_dump($userData);
-        // $loginUser=new User();
-        // $loginUser->setEmail($userData["email"]);
-        // $loginUser->setName($userData["name"]);
-        // $loginUser->setSurname($userData["surname"]);
+        $loginUser=new User(
+            $userData
+        );
         // echo($loginUser);
     } catch (Exception $e) {
         echo "Error: ".$e->getmessage();
     }
-
     //willDo set session (new file?)
-
+    unset($loginUser);
 }
 //header('Location: /');
