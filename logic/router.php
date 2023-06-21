@@ -27,7 +27,7 @@ class Router{
                 require_once __DIR__ . '\..\logic\pages\signupLogic.php';
                 break;
 
-            case '/loginLogic?email=prueba1%40prueba.com&password=12341234&submit=Submit+me%21':
+            case '/loginLogic?email=prueba1%40prueba.com&password=11111111&submit=Submit+me%21':
                 require_once __DIR__ . '\..\logic\pages\loginLogic.php';
                 break;
                 

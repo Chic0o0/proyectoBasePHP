@@ -8,18 +8,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     try {
         $db=new SQLiteConnection();
-        $userData=$db->readUser($_GET['email'], $_GET['password']);
+        $userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
     } catch (Exception $e) {
         //willDo handling for UNIQUE error exception
         echo "Error: ".$e->getmessage();
     }
-    
+
     //willDo set data
     try {
         $loginUser=new User(
-            $userData
+            ["name", $userData["name"]],
+            ["surname", $userData["surname"]],
+            ["age", $userData["age"]]
         );
-        // echo($loginUser);
     } catch (Exception $e) {
         echo "Error: ".$e->getmessage();
     }

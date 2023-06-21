@@ -49,15 +49,14 @@ class SQLiteConnection{
             $auth=password_verify($password, $row["password"]);
 
             if($auth){
-                $sql = "SELECT email, name, surname FROM users where email=?";
+                $sql = "SELECT name, surname, age FROM users where email=?";
                 $statement=$this->pdo->prepare($sql);
                 $statement->execute([$email]);
                 $row=array_unique($statement->fetch());
+                $this->disconnect();
                 return $row;
-            } else {
-                echo("Incorerct credentials");
             }
-            $this->disconnect();
+            die("Incorrect credentials");
         } catch(Exception $e){
             die('Error de conexión: ' .$e->getMessage());
         }

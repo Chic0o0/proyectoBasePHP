@@ -40,13 +40,20 @@ class User{
     //     }
     // }
 
+    // public function __construct(...$args){
+    //     $this->email=$args[0];
+    //     $this->password=$args[1];
+    //     $this->name=$args[2];
+    //     $this->surname=$args[3];
+    //     $this->age=$args[4];
+    //     $this->phone=$args[5];
+    // }
+
     public function __construct(...$args){
-        $this->email=$args[0];
-        $this->password=$args[1];
-        $this->name=$args[2];
-        $this->surname=$args[3];
-        $this->age=$args[4];
-        $this->phone=$args[5];
+        foreach ($args as $value) {
+            $key=$value[0];
+            $this->$key=$value[1];
+        }
     }
 
     public function getEmail(){
@@ -67,23 +74,24 @@ class User{
     public function getPhone(){
         return $this->phone;
     }
-    
-    public function setEmail(){
-        $this->email=$email;
-    }
-    public function setPassword(){
-        $this->password=password;
-    }
-    public function setName(){
-        $this->name=name;
-    }
-    public function setSurname(){
-        $this->surname=surname;
-    }
-    public function setAge(){
-        $this->age;
-    }
-    public function setPhone(){
-        $this->phone;
-    }
+
+    //Will probably use setters
+    // public function setEmail(){
+    //     $this->email=$email;
+    // }
+    // public function setPassword(){
+    //     $this->password=password;
+    // }
+    // public function setName(){
+    //     $this->name=name;
+    // }
+    // public function setSurname(){
+    //     $this->surname=surname;
+    // }
+    // public function setAge(){
+    //     $this->age;
+    // }
+    // public function setPhone(){
+    //     $this->phone;
+    // }
 }
