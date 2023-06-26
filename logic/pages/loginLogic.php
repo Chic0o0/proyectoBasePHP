@@ -10,11 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         $db=new SQLiteConnection();
         $userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
     } catch (Exception $e) {
-        //willDo handling for UNIQUE error exception
+        //willDo good error handling
         echo "Error: ".$e->getmessage();
     }
 
-    //willDo set data
     try {
         $loginUser=new User(
             ["name", $userData["name"]],
@@ -28,3 +27,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     unset($loginUser);
 }
 //header('Location: /');
+
