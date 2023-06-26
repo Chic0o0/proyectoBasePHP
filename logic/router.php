@@ -3,6 +3,21 @@ namespace App;
 class Router{
 
     //willDo function to manage url params or dynamic router with conditionals and regex
+    // public function router(){
+    //     $pages="^[A-Za-z]+$";
+    //     $logic="^[A-Za-z]+Logic$";
+
+    //     if ($_SERVER['REQUEST_URI']=="/"){
+    //         require_once __DIR__ . '\..\app\pages\home.php';
+    //     } elseif ($_SERVER['REQUEST_URI']==$pages) {
+    //         require_once __DIR__ . "\..\app\pages\\$pages.php";
+    //     } elseif($_SERVER['REQUEST_URI']==$logic){
+    //         require_once __DIR__ . "\..\app\pages\\$logic.php";
+    //     } else {
+    //         http_response_code(404);
+    //         require_once __DIR__ . '\..\app\pages\404.php';
+    //     }
+    //}
     public function router(){
         switch ($_SERVER['REQUEST_URI']) {
             case '':
