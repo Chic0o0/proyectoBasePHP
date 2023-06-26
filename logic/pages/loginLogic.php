@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         echo "Error: ".$e->getmessage();
     }
 
-    //willDo set data
     try {
         $loginUser=new User(
             ["name", $userData["name"]],
@@ -28,3 +27,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
     unset($loginUser);
 }
 //header('Location: /');
+
