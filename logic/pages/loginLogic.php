@@ -24,7 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         echo "Error: ".$e->getmessage();
     }
     //willDo set session (new file?)
+    echo $loginUser->getName();
     unset($loginUser);
+
 }
-//header('Location: /');
+// header('Location: /');
 

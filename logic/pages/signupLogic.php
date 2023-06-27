@@ -21,6 +21,7 @@ require_once "..\db\SQLiteConnection.php";
 //     processPost()
 // );
 
+//WillDo stop using $_POST directly
 $signupUser=new User(
     ["email", htmlspecialchars($_POST["email"])],
     ["password", password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT)],
