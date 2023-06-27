@@ -1,4 +1,5 @@
 <?php
+require_once "..\config.php";
 
 class Router{
 
@@ -23,20 +24,20 @@ class Router{
             case '':
             //Root page
             case '/':
-                require_once __DIR__ . '\..\app\pages\home.php';
+                require_once Config::PAGES . 'home.php';
                 break;
 
             //Handling content
             case '/about':
-                require_once __DIR__ . '\..\app\pages\about.php';
+                require_once Config::PAGES . 'about.php';
                 break;
 
             case '/signup':
-                require_once __DIR__ . '\..\app\pages\signup.php';
+                require_once Config::PAGES . 'signup.php';
                 break;
 
             case '/login':
-                require_once __DIR__ . '\..\app\pages\login.php';
+                require_once Config::PAGES . 'login.php';
                 break;
 
             //Handling logic PUBLIC ROUTER SHOULD NOT BE USED TO ENROUTE LOGIC
@@ -51,7 +52,7 @@ class Router{
             //404 not fount page
             default:
                 http_response_code(404);
-                require_once __DIR__ . '\..\app\pages\404.php';
+                require_once Config::PAGES . '404.php';
                 break;
         }
     }
