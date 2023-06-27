@@ -1,5 +1,5 @@
 <?php
-namespace App;
+
 class Router{
 
     //willDo function to manage url params or dynamic router with conditionals and regex

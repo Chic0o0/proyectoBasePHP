@@ -1,5 +1,5 @@
 <?php
-namespace App;
+
 // require_once "\classes\userClass.php" does not work, dont know why
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
