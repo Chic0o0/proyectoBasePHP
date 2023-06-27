@@ -40,15 +40,6 @@ class User{
     //     }
     // }
 
-    // public function __construct(...$args){
-    //     $this->email=$args[0];
-    //     $this->password=$args[1];
-    //     $this->name=$args[2];
-    //     $this->surname=$args[3];
-    //     $this->age=$args[4];
-    //     $this->phone=$args[5];
-    // }
-
     public function __construct(...$args){
         foreach ($args as $value) {
             $key=$value[0];

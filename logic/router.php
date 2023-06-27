@@ -40,13 +40,13 @@ class Router{
                 break;
 
             //Handling logic PUBLIC ROUTER SHOULD NOT BE USED TO ENROUTE LOGIC
-            case '/signupLogic':
-                require_once __DIR__ . '\..\logic\pages\signupLogic.php';
-                break;
+            // case '/signupLogic':
+            //     require_once __DIR__ . '\..\logic\pages\signupLogic.php';
+            //     break;
 
-            case '/loginLogic?email=prueba1%40prueba.com&password=11111111&submit=Submit+me%21':
-                require_once __DIR__ . '\..\logic\pages\loginLogic.php';
-                break;
+            // case '/loginLogic?email=prueba1%40prueba.com&password=11111111&submit=Submit+me%21':
+            //     require_once __DIR__ . '\..\logic\pages\loginLogic.php';
+            //     break;
                 
             //404 not fount page
             default:
