@@ -31,14 +31,11 @@ $signupUser=new User(
     ["phone", htmlspecialchars($_POST["phone"])]
 );
 
-try {
-    $db=new SQLiteConnection();
-    $db->createUser($signupUser);
-} catch (Exception $e) {
-    //willDo good error handling
-    echo "Error: ".$e->getmessage();
-}
-//willDo set session (new file?)
+$db=new SQLiteConnection();
+$db->createUser($signupUser);
+
 unset($signupUser);
 
 header('Location: /');
+//willDo error handling
+//willDo set session (new file?)

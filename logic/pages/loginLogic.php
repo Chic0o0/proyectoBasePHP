@@ -4,29 +4,19 @@
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+$db=new SQLiteConnection();
+$userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
 
-    try {
-        $db=new SQLiteConnection();
-        $userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
-    } catch (Exception $e) {
-        //willDo good error handling
-        echo "Error: ".$e->getmessage();
-    }
+$loginUser=new User(
+    ["name", $userData["name"]],
+    ["surname", $userData["surname"]],
+    ["age", $userData["age"]]
+);
 
-    try {
-        $loginUser=new User(
-            ["name", $userData["name"]],
-            ["surname", $userData["surname"]],
-            ["age", $userData["age"]]
-        );
-    } catch (Throwable $e) {
-        die("Error: ".$e->getMessage());
-    }
-    //willDo set session (new file?)
-    echo $loginUser->getName();
-    unset($loginUser);
+echo $loginUser->getName();
+unset($loginUser);
 
-}
 // header('Location: /');
 
+//willDo set session (new file?)
+//willDo good error handling
