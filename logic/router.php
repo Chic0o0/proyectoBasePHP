@@ -1,5 +1,6 @@
 <?php
 require_once "..\config.php";
+require_once "..\logic\utils.php";
 
 class Router{
 
@@ -7,23 +8,20 @@ class Router{
 
     //Just check $_SERVER['REQUEST_URI'] and return this: require_once Config::PAGES . $regex_match .'.php',
     //where $regex_match is the part of the url which matches with the file we try to go to
-
-    //Problem with regex: need to get a list of the pages, or other way of telling if page exists
     public function router(){
         $url=$_SERVER['REQUEST_URI'];
-        $pages='/^[A-Za-z]+$/';
-
-        echo $url;
+        $pagesList=Utils::allPages();
+        //willDo change for list of pages excluding home, header, footer and 404
         if ($url=="/"){
             require_once Config::PAGES . 'home.php';
-        } elseif (preg_match($pages, $url)) {
-            echo "entra";
+        } elseif (in_array(str_replace("/", "", $url) .'.php', $pagesList)){
             require_once Config::PAGES . str_replace("/", "", $url) . '.php';
         } else {
             http_response_code(404);
             require_once Config::PAGES . '404.php';
         }
     }
+
     // public function router(){
     //     switch ($_SERVER['REQUEST_URI']) {
     //         case '':

@@ -1,12 +1,7 @@
 <?php
 class Utils{
-    public function isFormSet(array $data){
-        foreach($elm as $data){
-            try{
-                isset($elm);
-            }catch(Exception $e){
-                die("Error: " .$e->getMessage());
-            }
-        }
+    public static function allPages(){
+        return array_diff(scandir("..\app\pages"), array('.', '..', '404.php', 'home.php', 'header.php', 'footer.php'));
+        // unset($arr[]);
     }
 }
