@@ -4,18 +4,16 @@ require_once "..\logic\utils.php";
 
 class Router{
 
-    //willDo function to manage url params or dynamic router with conditionals and regex
-
-    //Just check $_SERVER['REQUEST_URI'] and return this: require_once Config::PAGES . $regex_match .'.php',
-    //where $regex_match is the part of the url which matches with the file we try to go to
+    //willDo functionality to delete everything after ? (included) in GET requests
     public function router(){
         $url=$_SERVER['REQUEST_URI'];
+        $urlParsed=strtok(str_replace("/", "", $url), '?') .'.php';
         $pagesList=Utils::allPages();
-        //willDo change for list of pages excluding home, header, footer and 404
+
         if ($url=="/"){
             require_once Config::PAGES . 'home.php';
-        } elseif (in_array(str_replace("/", "", $url) .'.php', $pagesList)){
-            require_once Config::PAGES . str_replace("/", "", $url) . '.php';
+        } elseif (in_array($urlParsed, $pagesList)){
+            require_once Config::PAGES . $urlParsed;
         } else {
             http_response_code(404);
             require_once Config::PAGES . '404.php';

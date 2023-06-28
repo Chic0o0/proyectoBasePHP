@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         ){
         require_once "..\logic\pages\signupLogic.php";
     } else {
-        echo("<h1>Complete every form input to create an account, you faggot</h1>");
+        echo("<h1>Complete every form input to create an account</h1>");
     }
 }
 ?>
@@ -65,6 +65,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             required/>
         </label></br>
         
-        <label><input type="submit" name="submitSignUp" value="Submit me!"/></label></br>
+        <label><input type="submit" name="submitSignUp" value="Submit me!"/></label>
     </form>
 </div>
