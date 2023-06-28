@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
             ["surname", $userData["surname"]],
             ["age", $userData["age"]]
         );
-    } catch (Exception $e) {
-        echo "Error: ".$e->getmessage();
+    } catch (Throwable $e) {
+        die("Error: ".$e->getMessage());
     }
     //willDo set session (new file?)
     echo $loginUser->getName();

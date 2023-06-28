@@ -57,7 +57,7 @@ class SQLiteConnection{
                 return $row;
             }
             echo ("Incorrect credentials");
-        } catch(Exception $e){
+        } catch(Error $e){
             die('Error de conexión: ' .$e->getMessage());
         }
     }
