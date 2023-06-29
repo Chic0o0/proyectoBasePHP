@@ -13,10 +13,15 @@ $loginUser=new User(
     ["age", $userData["age"]]
 );
 
-echo $loginUser->getName();
+//willDo manage session with cookies
+session_id("user");
+session_start();
+$_SESSION["name"]=$loginUser->getName();
+$_SESSION["surname"]=$loginUser->getSurname();
+$_SESSION["age"]=$loginUser->getAge();
+
 unset($loginUser);
 
-// header('Location: /');
+header('Location: /');
 
 //willDo set session (new file?)
-//willDo good error handling

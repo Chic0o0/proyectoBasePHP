@@ -34,8 +34,14 @@ $signupUser=new User(
 $db=new SQLiteConnection();
 $db->createUser($signupUser);
 
+//willDo manage session with cookies
+session_id("user");
+session_start();
+$_SESSION["name"]=$signupUser->getName();
+$_SESSION["surname"]=$signupUser->getSurname();
+$_SESSION["age"]=$signupUser->getAge();
+
 unset($signupUser);
 
 header('Location: /');
-//willDo error handling
 //willDo set session (new file?)
