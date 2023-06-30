@@ -3,6 +3,7 @@
 // require_once "\classes\userClass.php" does not work, dont know why
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
+require_once "..\logic\sessions.php";
 
 //Maybe implement this as a general way to handle post requests: DYNAMIC POST HANDLER
 //Have to find a way to add the coma after array return
@@ -35,11 +36,7 @@ $db=new SQLiteConnection();
 $db->createUser($signupUser);
 
 //willDo manage session with cookies
-session_id("user");
-session_start();
-$_SESSION["name"]=$signupUser->getName();
-$_SESSION["surname"]=$signupUser->getSurname();
-$_SESSION["age"]=$signupUser->getAge();
+(new Session)->setUserSession($signupUser);
 
 unset($signupUser);
 

@@ -3,6 +3,7 @@
 // require_once "\classes\userClass.php" does not work, dont know why
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
+require_once "..\logic\sessions.php";
 
 $db=new SQLiteConnection();
 $userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
@@ -14,11 +15,7 @@ $loginUser=new User(
 );
 
 //willDo manage session with cookies
-session_id("user");
-session_start();
-$_SESSION["name"]=$loginUser->getName();
-$_SESSION["surname"]=$loginUser->getSurname();
-$_SESSION["age"]=$loginUser->getAge();
+(new Session)->setUserSession($loginUser);
 
 unset($loginUser);
 
