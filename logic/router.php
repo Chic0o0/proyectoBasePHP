@@ -3,8 +3,6 @@ require_once "..\config.php";
 require_once "..\logic\utils.php";
 
 class Router{
-
-    //willDo functionality to delete everything after ? (included) in GET requests
     public function router(){
         $url=$_SERVER['REQUEST_URI'];
         $urlParsed=strtok(str_replace("/", "", $url), '?') .'.php';

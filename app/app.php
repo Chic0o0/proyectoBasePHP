@@ -1,6 +1,6 @@
 <?php
 require_once '..\logic\router.php';
-
+require_once '..\logic\utils.php';
 ?>
 
 <head>	
@@ -12,7 +12,6 @@ require_once '..\logic\router.php';
 
 <?php
 require_once __DIR__ . '\..\app\pages\header.php';
-
+(new Utils)->setDefaultCookies();
 (new Router)->router();
-
 require_once __DIR__ . '\..\app\pages\footer.php';

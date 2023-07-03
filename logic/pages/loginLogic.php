@@ -20,5 +20,3 @@ $loginUser=new User(
 unset($loginUser);
 
 header('Location: /');
-
-//willDo set session (new file?)

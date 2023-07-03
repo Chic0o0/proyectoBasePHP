@@ -41,4 +41,3 @@ $db->createUser($signupUser);
 unset($signupUser);
 
 header('Location: /');
-//willDo set session (new file?)

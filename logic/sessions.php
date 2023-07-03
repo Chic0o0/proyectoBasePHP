@@ -2,9 +2,6 @@
 
 class Session{
 
-    public function cookies(){
-        
-    }
     public function setUserSession($user){
         session_id("user");
         session_start();
