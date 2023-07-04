@@ -6,6 +6,7 @@ require_once "..\db\SQLiteConnection.php";
 require_once "..\logic\sessions.php";
 
 $db=new SQLiteConnection();
+//WillDo stop using $_GET directly (dunno why)
 $userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
 
 $loginUser=new User(
@@ -14,7 +15,6 @@ $loginUser=new User(
     ["age", $userData["age"]]
 );
 
-//willDo manage session with cookies
 (new Session)->setUserSession($loginUser);
 
 unset($loginUser);

@@ -22,7 +22,7 @@ require_once "..\logic\sessions.php";
 //     processPost()
 // );
 
-//WillDo stop using $_POST directly
+//WillDo stop using $_POST directly (dunno why)
 $signupUser=new User(
     ["email", htmlspecialchars($_POST["email"])],
     ["password", password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT)],
@@ -32,10 +32,7 @@ $signupUser=new User(
     ["phone", htmlspecialchars($_POST["phone"])]
 );
 
-$db=new SQLiteConnection();
-$db->createUser($signupUser);
-
-//willDo manage session with cookies
+(new SQLiteConnection)->createUser($signupUser);
 (new Session)->setUserSession($signupUser);
 
 unset($signupUser);
