@@ -7,7 +7,6 @@ require_once "..\logic\sessions.php";
 
 $db=new SQLiteConnection();
 
-//willDo check if $_GET direct usage is secure
 $userData=$db->readUser(htmlspecialchars($_GET['email']), htmlspecialchars($_GET['password']));
 
 $loginUser=new User(
