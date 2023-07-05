@@ -6,7 +6,7 @@ if(isset($_GET['email'], $_GET['password'])){
     if(
         preg_match("/".$email_regex."/", $_GET["email"]) &&
         preg_match("/".$password_regex."/", $_GET["password"])
-        ){
+    ){
         require_once "..\logic\pages\loginLogic.php";
     } else {
         echo("<h1>Complete every form input correctly to log into your account</h1>");

@@ -8,7 +8,7 @@
         <ul>
             <li><a href="signup">Sign up</a></li>
             <li><a href="login">Log in</a></li>
-            <!-- willDo logout page/button -->
+            <li><a href="logout">Log out</a></li>
         </ul>
     </nav>
 </header>

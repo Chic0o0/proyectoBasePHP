@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         (empty($_POST["surname"])==0 && gettype($_POST["surname"])=="string")&&
         (empty($_POST["age"])==0 && gettype(intval($_POST["age"]))=="integer")&&
         preg_match("/".$phone_regex."/", $_POST["phone"])
-        ){
+    ){
         require_once "..\logic\pages\signupLogic.php";
     } else {
         echo("<h1>Complete every form input to create an account</h1>");
