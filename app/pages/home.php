@@ -1,6 +1,4 @@
 <?php
-// require_once "..\logic\cookies.php";
-// (new Cookies)->setDefaultCookie();
 if (isset($_COOKIE["SESSIONID"])){
     session_id($_COOKIE["SESSIONID"]);
     session_start();

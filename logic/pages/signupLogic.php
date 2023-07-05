@@ -22,7 +22,7 @@ require_once "..\logic\sessions.php";
 //     processPost()
 // );
 
-//WillDo stop using $_POST directly (dunno why)
+//willDo check if $_POST direct usage is secure
 $signupUser=new User(
     ["email", htmlspecialchars($_POST["email"])],
     ["password", password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT)],
