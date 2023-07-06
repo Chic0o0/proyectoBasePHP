@@ -1,6 +1,6 @@
 <?php
 session_start();
-setcookie(session_id(), "", time() - 3600);
+setcookie('SESSIONID', '', time() - 86400, '/');
 session_destroy();
 session_write_close();
 header("Location: /");

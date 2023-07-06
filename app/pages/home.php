@@ -7,7 +7,7 @@ if (isset($_COOKIE["SESSIONID"])){
 <div>
     <h1>Welcome 
         <?php
-            if(isset($_SESSION["name"])){
+            if(isset($_SESSION)){
                 echo $_SESSION["name"];
             } 
         ?>
