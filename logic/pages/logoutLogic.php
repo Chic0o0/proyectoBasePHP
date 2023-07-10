@@ -1,6 +1,4 @@
 <?php
-session_start();
-setcookie('SESSIONID', '', time() - 86400, '/');
-session_destroy();
-session_write_close();
+require_once "..\logic\sessions.php";
+(new Session)->breakUserSession();
 header("Location: /");

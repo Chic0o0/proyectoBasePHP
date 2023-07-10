@@ -2,7 +2,7 @@
 $email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
 $password_regex=".{8,}";
 
-//willDo check if $_POST treatment is secure
+//willDo check if $_GET treatment is secure
 if(isset($_GET['email'], $_GET['password'])){
     if(
         preg_match("/".$email_regex."/", $_GET["email"]) &&

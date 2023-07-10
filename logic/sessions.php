@@ -7,4 +7,11 @@ class Session{
         $_SESSION["surname"]=$user->getSurname();
         $_SESSION["age"]=$user->getAge();
     }
+
+    public function breakUserSession(){
+        session_start();
+        setcookie('SESSIONID', '', time() - 86400, '/');
+        session_destroy();
+        session_write_close();
+    }
 }

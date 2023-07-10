@@ -5,20 +5,6 @@ require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 require_once "..\logic\sessions.php";
 
-//Maybe implement this as a general way to handle post requests: DYNAMIC HTTP HANDLER
-//Have to find a way to add the coma after array return
-// function processPost(){
-//      arr
-//     foreach($_GET or $_POST as $key => $value){
-//         if($key=="password"){
-//             arr append [$key, password_hash(htmlspecialchars($value), PASSWORD_DEFAULT)];
-//         } else {
-//             arr append [$key, htmlspecialchars($value)];
-//         }
-//     }
-//      return arr
-// }
-
 $signupUser=new User(
     ["email", htmlspecialchars($_POST["email"])],
     ["password", password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT)],

@@ -17,6 +17,14 @@ class SQLiteConnection{
         unset($this->pdo);
     }
 
+    public function validateUser($email, $password){
+        $sql = "SELECT password FROM users where email=?";
+        $statement=$this->pdo->prepare($sql);
+        $statement->execute([$email]);
+        $row=$statement->fetch();
+        return password_verify($password, $row["password"]);
+    }
+
     public function createUser(object $userData){
         // $email=$userData->getEmail(); ...
         // $dbsent->bindParam('1', $email, \PDO::PARAM_STR); ...
@@ -33,13 +41,7 @@ class SQLiteConnection{
 
     public function readUser($email, $password){
         $this->connect();
-        $sql = "SELECT password FROM users where email=?";
-        $statement=$this->pdo->prepare($sql);
-        $statement->execute([$email]);
-        $row=$statement->fetch();
-        $auth=password_verify($password, $row["password"]);
-
-        if($auth){
+        if($this->validateUser($email, $password)){
             $sql = "SELECT name, surname, age FROM users where email=?";
             $statement=$this->pdo->prepare($sql);
             $statement->execute([$email]);
@@ -48,5 +50,13 @@ class SQLiteConnection{
             return $row;
         }
         echo ("Incorrect credentials");
+    }
+
+    //willDo update and delete funcs to interact with db
+    public function updateUser(){
+        
+    }
+    public function deleteUser(){
+        
     }
 }

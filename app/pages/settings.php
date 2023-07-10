@@ -6,11 +6,11 @@ $phone_regex="[0-9]{9}";
 //willDo check if $_POST treatment is secure
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(
-        preg_match("/".$email_regex."/", $_POST["upEmail"]) &&
-        preg_match("/".$password_regex."/", $_POST["upPassword"]) &&
-        (empty($_POST["upName"])==0 && gettype($_POST["upName"])=="string")&&
-        (empty($_POST["upSurname"])==0 && gettype($_POST["upSurname"])=="string")&&
-        (empty($_POST["upAge"])==0 && gettype(intval($_POST["upAge"]))=="integer")&&
+        preg_match("/".$email_regex."/", $_POST["upEmail"]) ||
+        preg_match("/".$password_regex."/", $_POST["upPassword"]) ||
+        (empty($_POST["upName"])==0 && gettype($_POST["upName"])=="string")||
+        (empty($_POST["upSurname"])==0 && gettype($_POST["upSurname"])=="string")||
+        (empty($_POST["upAge"])==0 && gettype(intval($_POST["upAge"]))=="integer")||
         preg_match("/".$phone_regex."/", $_POST["upPhone"])
     ){
         require_once "..\logic\pages\updateLogic.php";
@@ -28,42 +28,36 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             type="email"
             name="upEmail"
             pattern=<?php echo $email_regex?>
-            title="Please enter a valid email address"
-            required/>
+            title="Please enter a valid email address"/>
         </label></br>
 
         <label>Password: <input
             type="password"
             name="upPassword"
             pattern=<?php echo $password_regex?>
-            title="Password must be eight or more characters"
-            required/>
+            title="Password must be eight or more characters"/>
         </label></br>
         
         <label>Name: <input
             type="text"
-            name="upName"
-            required/>
+            name="upName"/>
         </label></br>
 
         <label>Surname: <input
             type="text"
-            name="upSurname"
-            required/>
+            name="upSurname"/>
         </label></br>
 
         <label>Age: <input
             type="number"
-            name="upAge"
-            required/>
+            name="upAge"/>
         </label></br>
 
         <label>Phone: <input
             type="tel"
             name="upPhone"
             pattern=<?php echo $phone_regex?>
-            title="Phone must be 9 digits exactly"
-            required/>
+            title="Phone must be 9 digits exactly"/>
         </label></br>
         
         <label><input type="submit" name="submitSignUp" value="Submit me!"/></label>
