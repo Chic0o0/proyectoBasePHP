@@ -3,13 +3,14 @@ $email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
 $password_regex=".{8,}";
 $phone_regex="[0-9]{9}";
 
+//willDo check if $_POST treatment is secure (multifile)
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(
         preg_match("/".$email_regex."/", $_POST["email"]) &&
         preg_match("/".$password_regex."/", $_POST["password"]) &&
-        (empty($_POST["name"])==0 && gettype($_POST["name"])=="string")&&
-        (empty($_POST["surname"])==0 && gettype($_POST["surname"])=="string")&&
-        (empty($_POST["age"])==0 && gettype(intval($_POST["age"]))=="integer")&&
+        (empty($_POST["name"])==0 && gettype($_POST["name"])=="string") &&
+        (empty($_POST["surname"])==0 && gettype($_POST["surname"])=="string") &&
+        (empty($_POST["age"])==0 && gettype(intval($_POST["age"]))=="integer") &&
         preg_match("/".$phone_regex."/", $_POST["phone"])
     ){
         require_once "..\logic\pages\signupLogic.php";
@@ -65,6 +66,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             required/>
         </label></br>
         
-        <label><input type="submit" name="submitSignUp" value="Submit me!"/></label>
+        <label><input type="submit" name="submit" value="Submit me!"/></label>
     </form>
 </div>

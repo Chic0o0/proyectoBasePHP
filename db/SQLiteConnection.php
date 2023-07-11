@@ -4,7 +4,7 @@ require_once "..\config.php";
 
 class SQLiteConnection{
     private $pdo;
-
+    
     public function connect() {
         if ($this->pdo == null) {
             $this->pdo = new \PDO("sqlite:".Config::SQLITE_PATH);
@@ -42,14 +42,14 @@ class SQLiteConnection{
     public function readUser($email, $password){
         $this->connect();
         if($this->validateUser($email, $password)){
-            $sql = "SELECT name, surname, age FROM users where email=?";
+            $sql = "SELECT email, name, surname, age, phone FROM users where email=?";
             $statement=$this->pdo->prepare($sql);
             $statement->execute([$email]);
             $row=array_unique($statement->fetch());
             $this->disconnect();
             return $row;
         }
-        echo ("Incorrect credentials");
+        echo ("<h1>Incorrect credentials</h1>");
     }
 
     //willDo update and delete funcs to interact with db

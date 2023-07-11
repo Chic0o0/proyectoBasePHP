@@ -1,4 +1,8 @@
 <?php
+if (isset($_COOKIE["SESSIONID"])){
+    session_id($_COOKIE["SESSIONID"]);
+    session_start();
+}
 require_once __DIR__ . '\..\app\pages\head.php';
 ?>
 <body>
