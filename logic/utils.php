@@ -18,8 +18,5 @@ class Utils{
         return $arr;
     }
 
-    //willDo function to create user instance dinamically; maybe use it for other purposes too
-    public static function setUpUser($arr){
-        
-    }
+    //mayDo function to create user instance dinamically; maybe use it for other purposes too
 }

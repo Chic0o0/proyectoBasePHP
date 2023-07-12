@@ -1,4 +1,7 @@
-<!-- willDo delete logic -->
-<h1>deleteLogic</h1>
 <?php
-var_dump($_SESSION);
+require_once "..\db\SQLiteConnection.php";
+require_once "..\logic\sessions.php";
+
+(new SQLiteConnection)->deleteUser();
+(new Session)->breakUserSession();
+header("Location: /");

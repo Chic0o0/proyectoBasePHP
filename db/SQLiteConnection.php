@@ -53,10 +53,21 @@ class SQLiteConnection{
     }
 
     //willDo update and delete funcs to interact with db
-    public function updateUser(){
-        
+    public function updateUser(object $userData){
+        // $this->connect();
+        // //wilDo append to string initialized attributes in userData
+        // $sql = "UPDATE users SET attrb1=?, attrib2=?... where email=?";
+        // $this->pdo->beginTransaction();
+        // $this->pdo->prepare($sql)->execute([...$userData->getters(), $_SESSION['email']]);
+        // $this->pdo->commit();
+        // $this->disconnect();
     }
     public function deleteUser(){
-        
+        $this->connect();
+        $sql = "DELETE FROM users WHERE email=?";
+        $this->pdo->beginTransaction();
+        $this->pdo->prepare($sql)->execute([$_SESSION['email']]);
+        $this->pdo->commit();
+        $this->disconnect();
     }
 }

@@ -66,23 +66,22 @@ class User{
         return $this->phone;
     }
 
-    //Will probably use setters
-    // public function setEmail(){
-    //     $this->email=$email;
-    // }
-    // public function setPassword(){
-    //     $this->password=password;
-    // }
-    // public function setName(){
-    //     $this->name=name;
-    // }
-    // public function setSurname(){
-    //     $this->surname=surname;
-    // }
-    // public function setAge(){
-    //     $this->age;
-    // }
-    // public function setPhone(){
-    //     $this->phone;
-    // }
+    public function setEmail($email){
+        $this->email=$email;
+    }
+    public function setPassword($password){
+        $this->password=$password;
+    }
+    public function setName($name){
+        $this->name=$name;
+    }
+    public function setSurname($surname){
+        $this->surname=$surname;
+    }
+    public function setAge($age){
+        $this->age=$age;
+    }
+    public function setPhone($phone){
+        $this->phone=$phone;
+    }
 }
