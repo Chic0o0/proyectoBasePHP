@@ -9,19 +9,17 @@ class Utils{
         return $pages;
     }
 
+    public static function delNullArray($arr){
+        foreach($arr as $key=>$val){
+            if(empty($val)){
+                unset($arr[$key]);
+            }
+        }
+        return $arr;
+    }
+
     //willDo function to create user instance dinamically; maybe use it for other purposes too
-    // public static function setUpUserData($userData){
-    //     $arr=array();
-    //     foreach($userData as $key => $value){
-    //         if($key=="password"){
-    //             array_push($arr, [$key, password_hash(htmlspecialchars($value), PASSWORD_DEFAULT)]);
-    //         } elseif($key=="submit"){
-    //             // do nothing(default form key)
-    //         } 
-    //         else {
-    //             array_push($arr, [$key, htmlspecialchars($value)]);
-    //         }
-    //     }
-    //     return $arr;
-    // }
+    public static function setUpUser($arr){
+        
+    }
 }
