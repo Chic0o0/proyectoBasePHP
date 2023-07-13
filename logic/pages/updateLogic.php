@@ -9,27 +9,22 @@ $userData = Utils::delNullArray($_POST);
 $updateUser=new User();
 
 if(isset($userData["email"])){
-    $updateUser->setEmail($userData["email"]);
+    $updateUser->setEmail(htmlspecialchars($userData["email"]));
 }
 if(isset($userData["name"])){
-    $updateUser->setEmail($userData["name"]);
+    $updateUser->setName(htmlspecialchars($userData["name"]));
 }
 if(isset($userData["surname"])){
-    $updateUser->setEmail($userData["surname"]);
+    $updateUser->setSurname(htmlspecialchars($userData["surname"]));
 }
 if(isset($userData["age"])){
-    $updateUser->setEmail($userData["age"]);
+    $updateUser->setAge(htmlspecialchars($userData["age"]));
 }
 if(isset($userData["phone"])){
-    $updateUser->setEmail($userData["phone"]);
+    $updateUser->setPhone(htmlspecialchars($userData["phone"]));
 }
 
-var_dump($updateUser);
-
-//willdo change methods / use other methods to adapt to prtially initialized user
-// (new SQLiteConnection)->updateUser($updateUser);
-// (new Session)->setUserSession($updateUser);
-
+(new SQLiteConnection)->updateUser($updateUser);
+(new Session)->reinitializeUserSession($updateUser);
 unset($updateUser);
-
-// header('Location: /');
+header('Location: /');

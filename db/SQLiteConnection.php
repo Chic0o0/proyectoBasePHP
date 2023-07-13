@@ -52,15 +52,56 @@ class SQLiteConnection{
         echo ("<h1>Incorrect credentials</h1>");
     }
 
-    //willDo update and delete funcs to interact with db
     public function updateUser(object $userData){
-        // $this->connect();
-        // //wilDo append to string initialized attributes in userData
-        // $sql = "UPDATE users SET attrb1=?, attrib2=?... where email=?";
-        // $this->pdo->beginTransaction();
-        // $this->pdo->prepare($sql)->execute([...$userData->getters(), $_SESSION['email']]);
-        // $this->pdo->commit();
-        // $this->disconnect();
+        $rpEmail= new ReflectionProperty('User', 'email');
+        $rpName = new ReflectionProperty('User', 'name');
+        $rpSurname = new ReflectionProperty('User', 'surname');
+        $rpAge = new ReflectionProperty('User', 'age');
+        $rpPhone = new ReflectionProperty('User', 'phone');
+
+        $this->connect();
+
+        if($rpEmail->isInitialized($userData)){
+            echo"EMAIL";
+            $sql = "UPDATE users SET email=? where email=?";
+            $this->pdo->beginTransaction();
+            $this->pdo->prepare($sql)->execute([$userData->getEmail(), $_SESSION['email']]);
+            $this->pdo->commit();
+        }
+
+        if($rpName->isInitialized($userData)){
+            echo"NAME";
+            $sql = "UPDATE users SET name=? where email=?";
+            $this->pdo->beginTransaction();
+            $this->pdo->prepare($sql)->execute([$userData->getName(), $_SESSION['email']]);
+            $this->pdo->commit();        
+        }
+
+        if($rpSurname->isInitialized($userData)){
+            echo"SURNAME";
+            $sql = "UPDATE users SET surname=? where email=?";
+            $this->pdo->beginTransaction();
+            $this->pdo->prepare($sql)->execute([$userData->getSurname(), $_SESSION['email']]);
+            $this->pdo->commit();        
+        }
+
+        if($rpAge->isInitialized($userData)){
+            echo"AGE";
+            $sql = "UPDATE users SET age=? where email=?";
+            $this->pdo->beginTransaction();
+            $this->pdo->prepare($sql)->execute([$userData->getAge(), $_SESSION['email']]);
+            $this->pdo->commit();
+        }
+
+        if($rpPhone->isInitialized($userData)){
+            echo"PHONE";
+            $sql = "UPDATE users SET phone=? where email=?";
+            $this->pdo->beginTransaction();
+            $this->pdo->prepare($sql)->execute([$userData->getPhone(), $_SESSION['email']]);
+            $this->pdo->commit();      
+        }
+       
+        $this->disconnect();
     }
     public function deleteUser(){
         $this->connect();

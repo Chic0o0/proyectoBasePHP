@@ -63,5 +63,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         <label><input type="submit" name="submit" value="Submit me!"/></label>
     </form>
-    <h1><a href="delete">Delete account</a></h1>
+    <h1><a href="delete">Delete account forever and ever no rollback!!!</a></h1>
 </div>
