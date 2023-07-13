@@ -26,9 +26,6 @@ class SQLiteConnection{
     }
 
     public function createUser(object $userData){
-        // $email=$userData->getEmail(); ...
-        // $dbsent->bindParam('1', $email, \PDO::PARAM_STR); ...
-        // $dbsent->execute();
 
         $this->connect();
         $sql = "INSERT INTO users (email, password, name, surname, age, phone) VALUES (?,?,?,?,?,?)";
@@ -62,7 +59,6 @@ class SQLiteConnection{
         $this->connect();
 
         if($rpEmail->isInitialized($userData)){
-            echo"EMAIL";
             $sql = "UPDATE users SET email=? where email=?";
             $this->pdo->beginTransaction();
             $this->pdo->prepare($sql)->execute([$userData->getEmail(), $_SESSION['email']]);
@@ -70,7 +66,6 @@ class SQLiteConnection{
         }
 
         if($rpName->isInitialized($userData)){
-            echo"NAME";
             $sql = "UPDATE users SET name=? where email=?";
             $this->pdo->beginTransaction();
             $this->pdo->prepare($sql)->execute([$userData->getName(), $_SESSION['email']]);
@@ -78,7 +73,6 @@ class SQLiteConnection{
         }
 
         if($rpSurname->isInitialized($userData)){
-            echo"SURNAME";
             $sql = "UPDATE users SET surname=? where email=?";
             $this->pdo->beginTransaction();
             $this->pdo->prepare($sql)->execute([$userData->getSurname(), $_SESSION['email']]);
@@ -86,7 +80,6 @@ class SQLiteConnection{
         }
 
         if($rpAge->isInitialized($userData)){
-            echo"AGE";
             $sql = "UPDATE users SET age=? where email=?";
             $this->pdo->beginTransaction();
             $this->pdo->prepare($sql)->execute([$userData->getAge(), $_SESSION['email']]);
@@ -94,7 +87,6 @@ class SQLiteConnection{
         }
 
         if($rpPhone->isInitialized($userData)){
-            echo"PHONE";
             $sql = "UPDATE users SET phone=? where email=?";
             $this->pdo->beginTransaction();
             $this->pdo->prepare($sql)->execute([$userData->getPhone(), $_SESSION['email']]);

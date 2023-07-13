@@ -1,6 +1,5 @@
 <?php
 
-// require_once "\classes\userClass.php" does not work, dont know why
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\SQLiteConnection.php";
 require_once "..\logic\sessions.php";

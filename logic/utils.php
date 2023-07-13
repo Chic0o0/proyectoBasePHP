@@ -1,10 +1,13 @@
 <?php
 class Utils{
-    //Devuelve todas las páginas de la app excepto home, header, footer y 404, y algunas más si session no existe
+    //Returns all pages but home, header, footer and 404, as well as some others regarding session status
     public static function allPages(){
         $pages = array_diff(scandir("..\app\pages"), array('.', '..', '404.php', 'home.php', 'head.php', 'header.php', 'footer.php'));
-        if(isset($_SESSION)==0){
+        if(!isset($_SESSION)){
             $pages=array_diff($pages, array('settings.php', 'delete.php'));
+        }
+        if(isset($_SESSION)){
+            $pages=array_diff($pages, array('login.php', 'signup.php'));
         }
         return $pages;
     }

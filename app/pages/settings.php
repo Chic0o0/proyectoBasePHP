@@ -6,9 +6,9 @@ $phone_regex="[0-9]{9}";
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(
         preg_match("/".$email_regex."/", $_POST["email"]) ||
-        (empty($_POST["name"])==0 && gettype($_POST["name"])=="string") ||
-        (empty($_POST["surname"])==0 && gettype($_POST["surname"])=="string") ||
-        (empty($_POST["age"])==0 && gettype(intval($_POST["age"]))=="integer") ||
+        (empty(!$_POST["name"]) && gettype($_POST["name"])=="string") ||
+        (empty(!$_POST["surname"]) && gettype($_POST["surname"])=="string") ||
+        (empty(!$_POST["age"]) && gettype(intval($_POST["age"]))=="integer") ||
         preg_match("/".$phone_regex."/", $_POST["phone"]) 
     ){
         require_once "..\logic\pages\updateLogic.php";
