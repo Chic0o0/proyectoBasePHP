@@ -27,11 +27,32 @@ class Utils{
             array_push($arr, [new ReflectionProperty('User', $val), $val]);
         }
         return $arr;
-        // return [new ReflectionProperty('User', 'email'),
-        // new ReflectionProperty('User', 'name'),
-        // new ReflectionProperty('User', 'surname'),
-        // new ReflectionProperty('User', 'age'),
-        // new ReflectionProperty('User', 'phone'),];
     }
-    //mayDo function to create user instance dinamically; maybe use it for other purposes too
+
+    //mayDo function to sanitize form data and assign it to array
+    // public static function sanitizeFormData(string ...$gArr){
+    //     $sanitizedData=array();
+    //     foreach ($gArr as $key => $value) {
+    //         if($key="email") {
+    //             $data=filter_var($value, FILTER_VALIDATE_EMAIL);
+    //             array_push($sanitizedData, $data);
+    //         } elseif($key="password") {
+    //             $data=password_hash(filter_var($value, FILTER_VALIDATE_EMAIL), PASSWORD_DEFAULT);
+    //             array_push($sanitizedData, $data);
+    //         } else {
+    //             $data=htmlspecialchars($value);
+    //             array_push($sanitizedData, $data);
+    //         }
+    //     }
+    //     return $sanitizedData;
+    // }
+    
+    //mayDo function to initialize user instance dinamically
+    // public static function setUser($user){
+    //     foreach ($user as $key => $value) {
+    //         if ($key!="submit"){
+    //             call_user_func(array($user, "set".ucfirst($key)), $value);
+    //         }
+    //     }
+    // }
 }

@@ -9,7 +9,7 @@ $userData = Utils::delNullArray($_POST);
 $updateUser=new User();
 
 if(isset($userData["email"])){
-    $updateUser->setEmail(htmlspecialchars($userData["email"]));
+    $updateUser->setEmail(filter_var($userData["email"], FILTER_SANITIZE_EMAIL));
 }
 if(isset($userData["name"])){
     $updateUser->setName(htmlspecialchars($userData["name"]));

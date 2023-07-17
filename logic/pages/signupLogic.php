@@ -5,7 +5,7 @@ require_once "..\db\SQLiteConnection.php";
 require_once "..\logic\sessions.php";
 
 $signupUser=new User(
-    ["email", htmlspecialchars($_POST["email"])],
+    ["email", filter_var($_POST["email"], FILTER_SANITIZE_EMAIL)],
     ["password", password_hash(htmlspecialchars($_POST["password"]),  PASSWORD_DEFAULT)],
     ["name", htmlspecialchars($_POST["name"])],
     ["surname", htmlspecialchars($_POST["surname"])],
