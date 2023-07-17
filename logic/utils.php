@@ -21,5 +21,17 @@ class Utils{
         return $arr;
     }
 
+    public static function reflectUser(string ...$props){
+        $arr=array();
+        foreach ($props as $val) {
+            array_push($arr, [new ReflectionProperty('User', $val), $val]);
+        }
+        return $arr;
+        // return [new ReflectionProperty('User', 'email'),
+        // new ReflectionProperty('User', 'name'),
+        // new ReflectionProperty('User', 'surname'),
+        // new ReflectionProperty('User', 'age'),
+        // new ReflectionProperty('User', 'phone'),];
+    }
     //mayDo function to create user instance dinamically; maybe use it for other purposes too
 }
