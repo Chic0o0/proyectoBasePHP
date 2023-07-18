@@ -17,7 +17,7 @@ class SQLiteConnection{
         unset($this->pdo);
     }
 
-    public function validateUser($email, $password){
+    public function validateUser($email, $password):bool{
         $sql = "SELECT password FROM users where email=?";
         $statement=$this->pdo->prepare($sql);
         $statement->execute([$email]);
@@ -26,7 +26,6 @@ class SQLiteConnection{
     }
 
     public function createUser(object $userData){
-
         $this->connect();
         $sql = "INSERT INTO users (email, password, name, surname, age, phone, super) VALUES (?,?,?,?,?,?,?)";
         $this->pdo->beginTransaction();
@@ -73,5 +72,19 @@ class SQLiteConnection{
         $this->pdo->prepare($sql)->execute([$_SESSION['email']]);
         $this->pdo->commit();
         $this->disconnect();
+    }
+
+    public function readAllUsers(){
+        $this->connect();
+        $sql = "SELECT email, name, surname, age, phone, super FROM users";
+        $statement=$this->pdo->prepare($sql);
+        $statement->execute();
+        $rows=($statement->fetchAll());
+        $this->disconnect();
+        $rowsParsed=array();
+        foreach ($rows as $row) {
+            array_push($rowsParsed, array_unique($row));
+        }
+        return $rowsParsed;
     }
 }
