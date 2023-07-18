@@ -3,13 +3,13 @@ require_once "..\logic\utils.php";
 
 class Session{
     public function setUserSession($user){
-        session_id($_COOKIE["SESSIONID"]);
         session_start();
         $_SESSION["email"]=$user->getEmail();
         $_SESSION["name"]=$user->getName();
         $_SESSION["surname"]=$user->getSurname();
         $_SESSION["age"]=$user->getAge();
         $_SESSION["phone"]=$user->getPhone();
+        $_SESSION["super"]=$user->getSuper();
     }
 
     public function breakUserSession(){

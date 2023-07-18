@@ -4,10 +4,13 @@ class Utils{
     public static function allPages(){
         $pages = array_diff(scandir("..\app\pages"), array('.', '..', '404.php', 'home.php', 'head.php', 'header.php', 'footer.php'));
         if(!isset($_SESSION)){
-            $pages=array_diff($pages, array('settings.php', 'delete.php'));
+            $pages=array_diff($pages, array('settings.php', 'delete.php', 'control.php'));
         }
         if(isset($_SESSION)){
             $pages=array_diff($pages, array('login.php', 'signup.php'));
+            if($_SESSION['super']==false){
+                $pages=array_diff($pages, array('control.php'));
+            }
         }
         return $pages;
     }

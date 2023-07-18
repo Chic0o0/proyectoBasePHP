@@ -28,10 +28,10 @@ class SQLiteConnection{
     public function createUser(object $userData){
 
         $this->connect();
-        $sql = "INSERT INTO users (email, password, name, surname, age, phone) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO users (email, password, name, surname, age, phone, super) VALUES (?,?,?,?,?,?,?)";
         $this->pdo->beginTransaction();
         $this->pdo->prepare($sql)->execute([$userData->getEmail(), $userData->getPassword(),
-            $userData->getName(), $userData->getSurname(), $userData->getAge(), $userData->getPhone()]);
+            $userData->getName(), $userData->getSurname(), $userData->getAge(), $userData->getPhone(), $userData->getSuper()?1:0]);
         $this->pdo->commit();
         $this->disconnect();
     }
@@ -39,7 +39,7 @@ class SQLiteConnection{
     public function readUser($email, $password){
         $this->connect();
         if($this->validateUser($email, $password)){
-            $sql = "SELECT email, name, surname, age, phone FROM users where email=?";
+            $sql = "SELECT email, name, surname, age, phone, super FROM users where email=?";
             $statement=$this->pdo->prepare($sql);
             $statement->execute([$email]);
             $row=array_unique($statement->fetch());

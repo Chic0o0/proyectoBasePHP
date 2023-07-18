@@ -11,7 +11,8 @@ $loginUser=new User(
     ["name", $userData["name"]],
     ["surname", $userData["surname"]],
     ["age", $userData["age"]],
-    ["phone", $userData["phone"]]
+    ["phone", $userData["phone"]],
+    ["super", $userData["super"]]
 );
 
 (new Session)->setUserSession($loginUser);

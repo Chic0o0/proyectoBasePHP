@@ -11,6 +11,13 @@
             ?>
                     <li><a href="logout">Log out</a></li>
                     <li><a href="settings">Manage account</a></li>
+                    <?php
+                        if($_SESSION['super']==true){
+                    ?>
+                            <li><a href="control">Control station</a></li>
+                    <?php
+                        }
+                    ?>
             <?php
                 } else {
             ?>

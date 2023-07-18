@@ -7,6 +7,7 @@ class User{
     private string $surname;
     private int $age;
     private int $phone;
+    private bool $super = false;
 
     public function __construct(...$args){
         foreach ($args as $value) {
@@ -32,6 +33,9 @@ class User{
     }
     public function getPhone(){
         return $this->phone;
+    }
+    public function getSuper(){
+        return $this->super;
     }
 
     public function setEmail($email){
