@@ -74,17 +74,29 @@ class SQLiteConnection{
         $this->disconnect();
     }
 
+    //Methods for superuser
     public function readAllUsers(){
-        $this->connect();
-        $sql = "SELECT email, name, surname, age, phone, super FROM users";
-        $statement=$this->pdo->prepare($sql);
-        $statement->execute();
-        $rows=($statement->fetchAll());
-        $this->disconnect();
-        $rowsParsed=array();
-        foreach ($rows as $row) {
-            array_push($rowsParsed, array_unique($row));
+        if($_SESSION["super"]){
+            $this->connect();
+            $sql = "SELECT email, name, surname, age, phone, super FROM users";
+            $statement=$this->pdo->prepare($sql);
+            $statement->execute();
+            $rows=($statement->fetchAll());
+            $this->disconnect();
+            $rowsParsed=array();
+            foreach ($rows as $row) {
+                array_push($rowsParsed, array_unique($row));
+            }
+            return $rowsParsed;
         }
-        return $rowsParsed;
+    }
+
+    public function destroyUser(){
+        $this->connect();
+        $sql = "DELETE FROM users WHERE email=?";
+        $this->pdo->beginTransaction();
+        $this->pdo->prepare($sql)->execute([$_SESSION['targetUser']]);
+        $this->pdo->commit();
+        $this->disconnect();
     }
 }

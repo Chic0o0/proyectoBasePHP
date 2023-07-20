@@ -27,6 +27,9 @@ class Session{
                 $_SESSION[$rp[1]]=$getter;
             }
         }
+    }
+
+    public function saveEmail(){
 
     }
 }

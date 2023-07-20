@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-4">
                 <h1>
-                    Basic PHP skeleton
+                    <a class="nav-link active" aria-current="page" href="/">Basic PHP skeleton</a>
                 </h1>
             </div>
             <div class="col-8">

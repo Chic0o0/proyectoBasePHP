@@ -9,7 +9,7 @@ class Utils{
         if(isset($_SESSION)){
             $pages=array_diff($pages, array('login.php', 'signup.php'));
             if($_SESSION['super']==false){
-                $pages=array_diff($pages, array('control.php'));
+                $pages=array_diff($pages, array('control.php', 'modify.php', 'destroy.php'));
             }
         }
         return $pages;
