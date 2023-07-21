@@ -4,16 +4,6 @@ require_once __DIR__."\..\..\db\SQLiteConnection.php";
 $users=(new SQLiteConnection)->readAllUsers();
 
 //willDo form to send user id via $_GET so destroyLogic knows which user to delete
-// if(isset($_GET['email'], $_GET['password'])){
-//     if(
-//         preg_match("/".$email_regex."/", $_GET["email"]) &&
-//         preg_match("/".$password_regex."/", $_GET["password"])
-//     ){
-//         require_once "..\logic\pages\loginLogic.php";
-//     } else {
-//         echo("<h1>Complete every form input correctly to log into your account</h1>");
-//     }
-// }
 ?>
 <table class="table">
     <tr>
@@ -28,6 +18,7 @@ $users=(new SQLiteConnection)->readAllUsers();
     </tr>
 <?php
 foreach ($users as $user) {
+$_SESSION[$user["email"]]=$user["email"];
 ?>
     <tr>
         <td>
@@ -49,10 +40,14 @@ foreach ($users as $user) {
             <?php echo $user["super"]?>
         </td>
         <td>
-            <a href="modify">Modify account!!</a>
+            <form action="modify" method="GET">
+                <input type="submit" name='<?php echo $user["email"]?>' value="Modify account">
+            </form>
         </td>
         <td>
-            <a href="destroy">Delete account!!</a>
+            <form action="destroy" method="GET">
+                <input type="submit" name='<?php echo $user["email"]?>' value="Delete account (danger)!!">
+            </form>
         </td>
     </tr>
 <?php

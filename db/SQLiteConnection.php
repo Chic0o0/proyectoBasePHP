@@ -91,11 +91,20 @@ class SQLiteConnection{
         }
     }
 
-    public function destroyUser(){
+    public function modifyUser($email){
         $this->connect();
-        $sql = "DELETE FROM users WHERE email=?";
+        $sql = "UPDATE users SET a=a WHERE email=? AND super!=1";
         $this->pdo->beginTransaction();
-        $this->pdo->prepare($sql)->execute([$_SESSION['targetUser']]);
+        $this->pdo->prepare($sql)->execute([$email]);
+        $this->pdo->commit();
+        $this->disconnect();
+    }
+
+    public function destroyUser($email){
+        $this->connect();
+        $sql = "DELETE FROM users WHERE email=? AND super!=1";
+        $this->pdo->beginTransaction();
+        $this->pdo->prepare($sql)->execute([$email]);
         $this->pdo->commit();
         $this->disconnect();
     }
