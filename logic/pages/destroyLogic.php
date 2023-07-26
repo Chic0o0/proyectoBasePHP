@@ -1,13 +1,15 @@
 <?php
-require_once "..\db\SQLiteConnection.php";
 
-//mayDo unset when over
-$userNeedle=str_replace("_", ".", key($_GET));
+//willDo modify and destroy in future
 
-if(in_array($userNeedle, $_SESSION, true)){
-    (new SQLiteConnection)->destroyUser($userNeedle);
-} else {
-    echo "Don't alter my app structure >:)";
-}
+// require_once "..\db\SQLiteConnection.php";
 
-header('Location: /');
+// $userNeedle=str_replace("_", ".", key($_POST));
+
+// if(in_array($userNeedle, $_SESSION, true)){
+//     (new SQLiteConnection)->destroyUser($userNeedle);
+// } else {
+//     echo "Don't alter my app structure >:)";
+// }
+
+// header('Location: /');

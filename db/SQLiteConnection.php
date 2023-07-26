@@ -91,21 +91,32 @@ class SQLiteConnection{
         }
     }
 
-    public function modifyUser($email){
-        $this->connect();
-        $sql = "UPDATE users SET a=a WHERE email=? AND super!=1";
-        $this->pdo->beginTransaction();
-        $this->pdo->prepare($sql)->execute([$email]);
-        $this->pdo->commit();
-        $this->disconnect();
-    }
+    //willDo modify and destroy in future
 
-    public function destroyUser($email){
-        $this->connect();
-        $sql = "DELETE FROM users WHERE email=? AND super!=1";
-        $this->pdo->beginTransaction();
-        $this->pdo->prepare($sql)->execute([$email]);
-        $this->pdo->commit();
-        $this->disconnect();
-    }
+    // public function modifyUser(object $userData, $email){
+    //     $rpUser=Utils::reflectUser('email', 'name', 'surname', 'age', 'phone');
+
+    //     $this->connect();
+
+    //     foreach ($rpUser as $rp) {
+    //         if($rp[0]->isInitialized($userData)){
+    //             $getter=call_user_func(array($userData, "get".ucfirst($rp[1])));
+    //             $sql = "UPDATE users SET $rp[1]=? where email=? AND super!=1";
+    //             $this->pdo->beginTransaction();
+    //             $this->pdo->prepare($sql)->execute([$getter, $email]);
+    //             $this->pdo->commit();
+    //         }
+    //     }
+        
+    //     $this->disconnect();
+    // }
+
+    // public function destroyUser($email){
+    //     $this->connect();
+    //     $sql = "DELETE FROM users WHERE email=? AND super!=1";
+    //     $this->pdo->beginTransaction();
+    //     $this->pdo->prepare($sql)->execute([$email]);
+    //     $this->pdo->commit();
+    //     $this->disconnect();
+    // }
 }
