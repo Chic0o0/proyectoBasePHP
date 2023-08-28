@@ -7,7 +7,7 @@ class SQLiteConnection{
     
     public function connect() {
         if ($this->pdo == null) {
-            $this->pdo = new \PDO("sqlite:".Config::SQLITE_PATH);
+            $this->pdo = new \PDO(Config::DB_PATH, "root", "DA5A4AD51B04F03009572F59219B6B28");
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
         return $this->pdo;
