@@ -7,7 +7,8 @@ class SQLiteConnection{
     
     public function connect() {
         if ($this->pdo == null) {
-            $this->pdo = new \PDO(Config::DB_PATH, "root", "DA5A4AD51B04F03009572F59219B6B28");
+            // willDo ask for password once in homepage
+            $this->pdo = new \PDO(Config::DB_PATH, "root", "password goes here");
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
         return $this->pdo;
@@ -41,7 +42,7 @@ class SQLiteConnection{
             $sql = "SELECT email, name, surname, age, phone, super FROM users where email=?";
             $statement=$this->pdo->prepare($sql);
             $statement->execute([$email]);
-            $row=array_unique($statement->fetch());
+            $row=($statement->fetch());
             return $row;
         }
         $this->disconnect();
@@ -85,38 +86,36 @@ class SQLiteConnection{
             $this->disconnect();
             $rowsParsed=array();
             foreach ($rows as $row) {
-                array_push($rowsParsed, array_unique($row));
+                array_push($rowsParsed, $row);
             }
             return $rowsParsed;
         }
     }
 
-    //willDo modify and destroy in future
+    public function modifyUser(object $userData, $email){
+        $rpUser=Utils::reflectUser('email', 'name', 'surname', 'age', 'phone');
 
-    // public function modifyUser(object $userData, $email){
-    //     $rpUser=Utils::reflectUser('email', 'name', 'surname', 'age', 'phone');
+        $this->connect();
 
-    //     $this->connect();
-
-    //     foreach ($rpUser as $rp) {
-    //         if($rp[0]->isInitialized($userData)){
-    //             $getter=call_user_func(array($userData, "get".ucfirst($rp[1])));
-    //             $sql = "UPDATE users SET $rp[1]=? where email=? AND super!=1";
-    //             $this->pdo->beginTransaction();
-    //             $this->pdo->prepare($sql)->execute([$getter, $email]);
-    //             $this->pdo->commit();
-    //         }
-    //     }
+        foreach ($rpUser as $rp) {
+            if($rp[0]->isInitialized($userData)){
+                $getter=call_user_func(array($userData, "get".ucfirst($rp[1])));
+                $sql = "UPDATE users SET $rp[1]=? where email=? AND super!=1";
+                $this->pdo->beginTransaction();
+                $this->pdo->prepare($sql)->execute([$getter, $email]);
+                $this->pdo->commit();
+            }
+        }
         
-    //     $this->disconnect();
-    // }
+        $this->disconnect();
+    }
 
-    // public function destroyUser($email){
-    //     $this->connect();
-    //     $sql = "DELETE FROM users WHERE email=? AND super!=1";
-    //     $this->pdo->beginTransaction();
-    //     $this->pdo->prepare($sql)->execute([$email]);
-    //     $this->pdo->commit();
-    //     $this->disconnect();
-    // }
+    public function destroyUser($email){
+        $this->connect();
+        $sql = "DELETE FROM users WHERE email=? AND super!=1";
+        $this->pdo->beginTransaction();
+        $this->pdo->prepare($sql)->execute([$email]);
+        $this->pdo->commit();
+        $this->disconnect();
+    }
 }

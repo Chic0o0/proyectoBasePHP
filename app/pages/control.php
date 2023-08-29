@@ -86,7 +86,7 @@ $_SESSION[$user["email"]]=$user["email"];
                 </div>
             </div>
             <div class="row text-center p-2">
-                <input class="container-fluid bg-primary-subtle" type="submit" name=<?php echo "button".ucfirst($user["email"])?> value="Modify account!!"/>
+                <input class="container-fluid bg-primary-subtle" type="submit" name=<?php echo $user["email"]?> value="Modify account!!"/>
             </div>
         </div>
     </form>
