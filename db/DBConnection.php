@@ -2,13 +2,12 @@
 require_once "..\config.php";
 require_once "..\logic\utils.php";
 
-class SQLiteConnection{
+class DBConnection{
     private $pdo;
     
     public function connect() {
         if ($this->pdo == null) {
-            // willDo ask for password once in homepage
-            $this->pdo = new \PDO(Config::DB_PATH, "root", "password goes here");
+            $this->pdo = new \PDO(Config::DB_PATH, "root", "F0D2AC76C32342A8A27F1E74892A4AA0");
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
         return $this->pdo;
@@ -93,7 +92,7 @@ class SQLiteConnection{
     }
 
     public function modifyUser(object $userData, $email){
-        $rpUser=Utils::reflectUser('email', 'name', 'surname', 'age', 'phone');
+        $rpUser=Utils::reflectUser('email', 'password', 'name', 'surname', 'age', 'phone');
 
         $this->connect();
 

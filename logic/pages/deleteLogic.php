@@ -1,7 +1,7 @@
 <?php
-require_once "..\db\SQLiteConnection.php";
+require_once "..\db\DBConnection.php";
 require_once "..\logic\sessions.php";
 
-(new SQLiteConnection)->deleteUser();
+(new DBConnection)->deleteUser();
 (new Session)->breakUserSession();
 header("Location: /");

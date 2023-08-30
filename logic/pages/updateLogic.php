@@ -1,7 +1,7 @@
 <?php
 
 require_once "..\logic\classes\userClass.php";
-require_once "..\db\SQLiteConnection.php";
+require_once "..\db\DBConnection.php";
 require_once "..\logic\sessions.php";
 require_once "..\logic\utils.php";
 
@@ -24,7 +24,7 @@ if(isset($userData["phone"])){
     $updateUser->setPhone(htmlspecialchars($userData["phone"]));
 }
 
-(new SQLiteConnection)->updateUser($updateUser);
+(new DBConnection)->updateUser($updateUser);
 (new Session)->reinitializeUserSession($updateUser);
 unset($updateUser);
 header('Location: /');

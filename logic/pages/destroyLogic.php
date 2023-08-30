@@ -1,6 +1,6 @@
 <?php
 
-require_once "..\db\SQLiteConnection.php";
+require_once "..\db\DBConnection.php";
 
 $userNeedle=str_replace("_", ".", key($_POST));
 foreach ($_POST as $key => $value) {
@@ -9,7 +9,7 @@ foreach ($_POST as $key => $value) {
 echo $userNeedle;
 
 if(in_array($userNeedle, $_SESSION, true)){
-    (new SQLiteConnection)->destroyUser($userNeedle);
+    (new DBConnection)->destroyUser($userNeedle);
 } else {
     echo "Don't alter my app structure >:)";
 }

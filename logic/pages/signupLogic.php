@@ -1,7 +1,7 @@
 <?php
 
 require_once "..\logic\classes\userClass.php";
-require_once "..\db\SQLiteConnection.php";
+require_once "..\db\DBConnection.php";
 require_once "..\logic\sessions.php";
 
 $signupUser=new User(
@@ -13,7 +13,7 @@ $signupUser=new User(
     ["phone", htmlspecialchars($_POST["phone"])]
 );
 
-(new SQLiteConnection)->createUser($signupUser);
+(new DBConnection)->createUser($signupUser);
 (new Session)->setUserSession($signupUser);
 
 unset($signupUser);
