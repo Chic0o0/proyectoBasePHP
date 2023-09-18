@@ -1,20 +1,25 @@
 <!-- willDo layout (multifile) -->
-<header class="bg-primary-subtle p-1">
+<header class="bg-primary-subtle p-2">
     <div class="container-fluid m-0">
         <div class="row">
-            <div class="col-4">
-                <h1>
-                    <a class="nav-link active" aria-current="page" href="/">Basic PHP skeleton</a>
-                </h1>
+            <div class="col-sm-8 text-center my-auto">
+                <a class="nav-link active" aria-current="page" href="/">
+                    <h1 class="text-center">Basic PHP Skeleton</h1>
+                </a>
             </div>
-            <div class="col-8">
-                <nav class="navbar navbar-expand-lg">
+            <div class="col-sm-4 my-auto">
+                    <img src="media/images/logo.png" class="rounded mx-auto d-block w-50 mw-50" alt="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-sm">
                     <div class="container-fluid">
-                        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
+                            <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                                 </li>

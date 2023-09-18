@@ -4,10 +4,10 @@ require_once "..\logic\utils.php";
 
 class DBConnection{
     private $pdo;
-    
+
     public function connect() {
         if ($this->pdo == null) {
-            $this->pdo = new \PDO(Config::DB_PATH, "root", "F0D2AC76C32342A8A27F1E74892A4AA0");
+            $this->pdo = new \PDO(Config::DB_PATH, "root", Config::DB_PASSWORD);
             $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
         return $this->pdo;
