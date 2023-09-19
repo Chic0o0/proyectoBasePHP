@@ -1,5 +1,12 @@
 <?php
 class Utils{
+
+    //willDo function that given an array:
+    //1. Uses its keys as variable names
+    //2. Uses its values as values for those variables
+    //3. Appends each variable to a new array
+    //Utility: dismiss any try to mess up with $_GET and $_POST
+
     //Returns all pages but home, header, footer and 404, as well as some others regarding session status
     public static function allPages(){
         $pages = array_diff(scandir("..\app\pages"), array('.', '..', '404.php', 'home.php', 'head.php', 'header.php', 'footer.php'));

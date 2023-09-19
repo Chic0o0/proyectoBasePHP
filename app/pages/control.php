@@ -77,13 +77,13 @@ foreach ($users as $user) {
                     </div>
                 </div>
                 <div class="row text-center p-2">
-                    <input class="container-fluid bg-primary-subtle" type="submit" name=<?php echo $user["email"]?> value="Modify account!!"/>
+                    <input class="container-fluid" style="background-color:#19BFE0" type="submit" name=<?php echo $user["email"]?> value="Modify account!!"/>
                 </div>
             </div>
         </form>
         <form action="destroy" method="POST">
             <div class="row text-center p-2">
-                <input class="container-fluid bg-primary-subtle" type="submit" name="<?php echo $user["email"]?>" value="Delete account (danger)!!"/>
+                <input class="container-fluid" style="background-color:#19BFE0" type="submit" name="<?php echo $user["email"]?>" value="Delete account (danger)!!"/>
             </div>
         </form>
 <?php

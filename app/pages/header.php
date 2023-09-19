@@ -1,5 +1,4 @@
-<!-- willDo layout (multifile) -->
-<header class="bg-primary-subtle p-2">
+<header class="p-2" style="background-color:#19BFE0">
     <div class="container-fluid m-0">
         <div class="row">
             <div class="col-sm-8 text-center my-auto">
@@ -8,7 +7,8 @@
                 </a>
             </div>
             <div class="col-sm-4 my-auto">
-                    <img src="media/images/logo.png" class="rounded mx-auto d-block w-50 mw-50" alt="logo">
+                <span class="d-inline">
+                    <img src="media/images/favicon.png" class="rounded mx-auto d-block" alt="logo">
             </div>
         </div>
         <div class="row">

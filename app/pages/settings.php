@@ -74,7 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
         </div>
         <div class="row text-center p-2">
-            <input class="container-fluid bg-primary-subtle" type="submit" name="submit" value="Submit me!"/>
+            <input class="container-fluid" style="background-color:#19BFE0" type="submit" name="submit" value="Submit me!"/>
         </div>
 </form>
 <h1><a href="delete">Delete account forever and ever no rollback!!!</a></h1>

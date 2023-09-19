@@ -42,7 +42,7 @@ if(isset($_GET['email'], $_GET['password'])){
             </div>
         </div>
         <div class="row text-center p-2">
-            <input class="container-fluid bg-primary-subtle" type="submit" name="submit" value="Submit me!"/>
+            <input class="container-fluid" style="background-color:#19BFE0" type="submit" name="submit" value="Submit me!"/>
         </div>
     </div>
 </form>
