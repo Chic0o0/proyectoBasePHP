@@ -1,12 +1,10 @@
 <?php
-$email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
-$password_regex=".{8,}";
+require_once "..\config.php";
 
-//willDo check if $_GET treatment is secure (multifile)
 if(isset($_GET['email'], $_GET['password'])){
     if(
-        preg_match("/".$email_regex."/", $_GET["email"]) &&
-        preg_match("/".$password_regex."/", $_GET["password"])
+        preg_match("/".Config::EMAIL_REGEX."/", $_GET["email"]) &&
+        preg_match("/".Config::PASSWORD_REGEX."/", $_GET["password"])
     ){
         require_once "..\logic\pages\loginLogic.php";
     } else {
@@ -24,7 +22,7 @@ if(isset($_GET['email'], $_GET['password'])){
                     class="container-fluid"
                     type="email"
                     name="email"
-                    pattern=<?php echo $email_regex?>
+                    pattern=<?php echo Config::EMAIL_REGEX?>
                     title="Please enter a valid email address"
                     required
                 />
@@ -35,7 +33,7 @@ if(isset($_GET['email'], $_GET['password'])){
                     class="container-fluid"
                     type="password"
                     name="password"
-                    pattern=<?php echo $password_regex?>
+                    pattern=<?php echo Config::PASSWORD_REGEX?>
                     title="Password must be eight or more characters"
                     required
                 />

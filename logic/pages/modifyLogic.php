@@ -1,7 +1,6 @@
 <?php
 
-$email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
-
+require_once "..\config.php";
 require_once "..\logic\classes\userClass.php";
 require_once "..\db\DBConnection.php";
 require_once "..\logic\utils.php";
@@ -33,4 +32,4 @@ if(isset($userData["phone"])){
 (new DBConnection)->modifyUser($updateUser, $userNeedle);
 var_dump($updateUser);
 unset($updateUser);
-// header('Location: /');
+header('Location: /');

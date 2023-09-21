@@ -1,9 +1,6 @@
 <?php
+require_once "..\config.php";
 require_once __DIR__."\..\..\db\DBConnection.php";
-
-$email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
-$password_regex=".{8,}";
-$phone_regex="[0-9]{9}";
 
 $users=(new DBConnection)->readAllUsers();
 
@@ -20,7 +17,7 @@ foreach ($users as $user) {
                             class="container-fluid"
                             type="email"
                             name="email"
-                            pattern=<?php echo $email_regex?>
+                            pattern=<?php echo Config::EMAIL_REGEX?>
                             title="Please enter a valid email address"
                             placeholder='<?php echo $user["email"]?>'
                         />
@@ -31,7 +28,7 @@ foreach ($users as $user) {
                             class="container-fluid"
                             type="password"
                             name="password"
-                            pattern=<?php echo $password_regex?>
+                            pattern=<?php echo Config::PASSWORD_REGEX?>
                             title="Please enter a valid passsword"
                         />
                     </div>        
@@ -70,7 +67,7 @@ foreach ($users as $user) {
                             class="container-fluid"
                             type="tel"
                             name="phone"
-                            pattern=<?php echo $phone_regex?>
+                            pattern=<?php echo Config::PHONE_REGEX?>
                             title="Phone must be 9 digits exactly"
                             placeholder='<?php echo $user["phone"]?>'
                         />

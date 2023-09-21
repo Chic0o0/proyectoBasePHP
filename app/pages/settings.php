@@ -1,14 +1,13 @@
 <?php
-$email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
-$phone_regex="[0-9]{9}";
+require_once "..\config.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(
-        preg_match("/".$email_regex."/", $_POST["email"]) ||
+        preg_match("/".Config::EMAIL_REGEX."/", $_POST["email"]) ||
         (empty(!$_POST["name"]) && gettype($_POST["name"])=="string") ||
         (empty(!$_POST["surname"]) && gettype($_POST["surname"])=="string") ||
         (empty(!$_POST["age"]) && gettype(intval($_POST["age"]))=="integer") ||
-        preg_match("/".$phone_regex."/", $_POST["phone"]) 
+        preg_match("/".Config::PHONE_REGEX."/", $_POST["phone"]) 
     ){
         require_once "..\logic\pages\updateLogic.php";
     } else {
@@ -27,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     class="container-fluid"
                     type="email"
                     name="email"
-                    pattern=<?php echo $email_regex?>
+                    pattern=<?php echo Config::EMAIL_REGEX?>
                     title="Please enter a valid email address"
                     placeholder='<?php if(isset($_SESSION))echo $_SESSION["email"]?>'
                 />
@@ -67,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     class="container-fluid"
                     type="tel"
                     name="phone"
-                    pattern=<?php echo $phone_regex?>
+                    pattern=<?php echo Config::PHONE_REGEX?>
                     title="Phone must be 9 digits exactly"
                     placeholder='<?php if(isset($_SESSION))echo $_SESSION["phone"]?>'
                 />

@@ -1,17 +1,14 @@
 <?php
-$email_regex="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
-$password_regex=".{8,}";
-$phone_regex="[0-9]{9}";
+require_once "..\config.php";
 
-//willDo check if $_POST treatment is secure (multifile)
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(
-        preg_match("/".$email_regex."/", $_POST["email"]) &&
-        preg_match("/".$password_regex."/", $_POST["password"]) &&
+        preg_match("/".Config::EMAIL_REGEX."/", $_POST["email"]) &&
+        preg_match("/".Config::PASSWORD_REGEX."/", $_POST["password"]) &&
         (empty(!$_POST["name"]) && gettype($_POST["name"])=="string") &&
         (empty(!$_POST["surname"]) && gettype($_POST["surname"])=="string") &&
         (empty(!$_POST["age"]) && gettype(intval($_POST["age"]))=="integer") &&
-        preg_match("/".$phone_regex."/", $_POST["phone"])
+        preg_match("/".Config::PHONE_REGEX."/", $_POST["phone"])
     ){
         require_once "..\logic\pages\signupLogic.php";
     } else {
@@ -29,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     class="container-fluid"
                     type="email"
                     name="email"
-                    pattern=<?php echo $email_regex?>
+                    pattern=<?php echo Config::EMAIL_REGEX?>
                     title="Please enter a valid email address"
                     required
                 />
@@ -40,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     class="container-fluid"
                     type="password"
                     name="password"
-                    pattern=<?php echo $password_regex?>
+                    pattern=<?php echo Config::PASSWORD_REGEX?>
                     title="Password must be eight or more characters"
                     required
                 />
@@ -80,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     class="container-fluid"
                     type="tel"
                     name="phone"
-                    pattern=<?php echo $phone_regex?>
+                    pattern=<?php echo Config::PHONE_REGEX?>
                     title="Phone must be 9 digits exactly"
                     required
                 />
