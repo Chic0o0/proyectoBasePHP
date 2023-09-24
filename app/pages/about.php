@@ -1,4 +1,0 @@
-<div>
-    <h1>We are the best</h1>
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In venenatis mauris id suscipit venenatis. Mauris quam lacus, iaculis at lectus ac, tincidunt iaculis nibh. Sed tincidunt ac massa ac malesuada. Phasellus quis suscipit metus. Nulla tincidunt elit et nisl ullamcorper commodo. In odio tortor, egestas sed urna non, laoreet condimentum diam. Sed libero magna, commodo nec ligula non, rutrum condimentum ligula. Nullam sed lacinia nunc. Maecenas posuere posuere elit, ac molestie mi bibendum vitae. Donec pretium, lectus nec lobortis pharetra, libero leo imperdiet quam, sit amet hendrerit massa diam quis mauris. Proin at felis vitae nulla sollicitudin placerat. Nunc egestas purus non dictum scelerisque. Nulla ut ex in arcu rhoncus dictum vitae id velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-</div>

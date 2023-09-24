@@ -32,6 +32,15 @@ class Utils{
         }
         return $arr;
     }
+
+    public static function checkHexCodes(array $array):bool{
+        foreach ($array as $key => $value) {
+            if(!preg_match(Config::HEX_REGEX, $value)){
+                return false;
+            }
+        }
+        return true;
+    }
     
     //mayDo function to sanitize form data and assign it to array
     // public static function sanitizeFormData(string ...$gArr){

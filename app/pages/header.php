@@ -24,11 +24,8 @@
                                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about">About us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
+                                    <a class="nav-link" href="pixelart">Pixelart</a>
+                                </li>   
                                 <?php
                                     if(isset($_COOKIE["SESSIONID"])){
                                 ?>
