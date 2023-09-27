@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <form action="signup" method="POST">
     <div class="container-fluid m-0 mt-4 mb-3">
         <div class="row mb-3">
-            <div class="col-4">
+            <div class="col-sm-4 col-12">
                 <label class="form-label" for="email">Email: <br></label>
                 <input
                     class="container-fluid"
@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     required
                 />
             </div>        
-            <div class="col-4">
+            <div class="col-sm-4 col-12">
                 <label class="form-label" for="password">Password: <br></label>
                 <input
                     class="container-fluid"
@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     required
                 />
             </div>
-            <div class="col-4">
+            <div class="col-sm-4 col-12">
                 <label class="form-label" for="name">Name: <br></label>
                 <input
                     class="container-fluid"
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
         </div>
         <div class="row  mb-3">
-            <div class="col-4">
+            <div class="col-sm-4 col-12">
                 <label class="form-label" for="surname">Surname: <br></label>
                 <input
                     class="container-fluid"
@@ -62,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     required
                 />
             </div>
-            <div class="col-4">
+            <div class="col-sm-4 col-12">
                 <label class="form-label" for="age">Age: <br></label>
                 <input
                     class="container-fluid"
@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     required
                 />
             </div>
-            <div class="col-4">
+            <div class="col-sm-4 col-12">
                 <label class="form-label" for="phone">Phone: <br></label>
                 <input
                     class="container-fluid"

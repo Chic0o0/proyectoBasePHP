@@ -1,14 +1,22 @@
 <?php
 $a=[1, 2, 3]; //pictures
 $b=[
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
+    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
+    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"]
 ]; //pixels
 ?>
 <div class="container">
@@ -17,7 +25,7 @@ $b=[
         foreach ($a as $ab) {
         ?>
             <div class="post col-xxl-4 col-lg-6 d-sm-flex" style="gap:5%;margin-bottom:2%;">
-                <div class="border border-3 pic" style="width:240px;height:246px">
+                <div class="border border-3 pic" style="width:240px">
         <?php
                 foreach ($b as $bb) {
         ?> 
@@ -25,7 +33,7 @@ $b=[
         <?php
                     foreach ($bb as $bbb) {
         ?>
-                        <div class="pixel" style="background-color:#<?php echo $bbb?>;width:30px;height:30px"></div>
+                        <div class="pixel" style="background-color:#<?php echo $bbb?>;width:15px;height:15px"></div>
         <?php
                     }
         ?>

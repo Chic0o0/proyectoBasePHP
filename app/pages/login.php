@@ -1,10 +1,10 @@
 <?php
 require_once "..\config.php";
 
-if(isset($_GET['email'], $_GET['password'])){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(
-        preg_match("/".Config::EMAIL_REGEX."/", $_GET["email"]) &&
-        preg_match("/".Config::PASSWORD_REGEX."/", $_GET["password"])
+        preg_match("/".Config::EMAIL_REGEX."/", $_POST["email"]) &&
+        preg_match("/".Config::PASSWORD_REGEX."/", $_POST["password"])
     ){
         require_once "..\logic\pages\loginLogic.php";
     } else {
@@ -13,10 +13,10 @@ if(isset($_GET['email'], $_GET['password'])){
 }
 ?>
 <h1>Log in your body aquí mismo</h1>
-<form action="login" method="GET">
+<form action="login" method="POST">
     <div class="container-fluid m-0 mt-4 mb-3">
         <div class="row mb-3">
-            <div class="col-6">
+            <div class="col-sm-6 col-12">
                 <label class="form-label" for="email">Email: <br></label>
                 <input
                     class="container-fluid"
@@ -27,7 +27,7 @@ if(isset($_GET['email'], $_GET['password'])){
                     required
                 />
             </div>        
-            <div class="col-6">
+            <div class="col-sm-6 col-12">
                 <label class="form-label" for="password">Password: <br></label>
                 <input
                     class="container-fluid"

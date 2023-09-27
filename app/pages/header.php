@@ -26,9 +26,15 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="pixelart">Pixelart</a>
                                 </li>   
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="atelier">Atelier</a>
+                                </li>   
                                 <?php
                                     if(isset($_COOKIE["SESSIONID"])){
                                 ?>
+                                    <!-- <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" href="atelier">Atelier</a>
+                                    </li>    -->
                                     <li class="nav-item">
                                         <a class="nav-link active" aria-current="page" href="logout">Logout</a>
                                     </li>
