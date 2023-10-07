@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-8 text-center my-auto">
                 <a class="nav-link active" aria-current="page" href="/">
-                    <h1 class="text-center">Basic PHP Skeleton</h1>
+                    <h1 class="text-center text-white">Basic PHP Skeleton</h1>
                 </a>
             </div>
             <div class="col-sm-4 my-auto">
@@ -21,31 +21,28 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                    <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pixelart">Pixelart</a>
-                                </li>   
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="atelier">Atelier</a>
-                                </li>   
+                                    <a class="nav-link text-white" href="pixelart">Pixelart</a>
+                                </li>      
                                 <?php
                                     if(isset($_COOKIE["SESSIONID"])){
                                 ?>
-                                    <!-- <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="atelier">Atelier</a>
-                                    </li>    -->
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="logout">Logout</a>
+                                        <a class="nav-link active text-white" aria-current="page" href="atelier">Atelier</a>
+                                    </li>   
+                                    <li class="nav-item">
+                                        <a class="nav-link active text-white" aria-current="page" href="logout">Logout</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="settings">Manage Account</a>
+                                        <a class="nav-link active text-white" aria-current="page" href="settings">Manage Account</a>
                                     </li>
                                 <?php
                                             if($_SESSION['super']==true){
                                                 ?>
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" aria-current="page" href="control">Control station</a>
+                                                    <a class="nav-link active text-white" aria-current="page" href="control">Control station</a>
                                                 </li>
                                 <?php
                                             }
@@ -54,10 +51,10 @@
                                     } else {
                                 ?>
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="signup">Signup</a>
+                                        <a class="nav-link active text-white" aria-current="page" href="signup">Signup</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="login">Login</a>
+                                        <a class="nav-link active text-white" aria-current="page" href="login">Login</a>
                                     </li>
                                 <?php
                                     }

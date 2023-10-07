@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
         </div>
         <div class="row text-center p-2">
-            <input class="container-fluid" style="background-color:#19BFE0" type="submit" name="submit" value="Submit me!"/>
+            <input class="container-fluid text-white" style="background-color:#19BFE0" type="submit" name="submit" value="Submit me!"/>
         </div>
     </div>
 </form>

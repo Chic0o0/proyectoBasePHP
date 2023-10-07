@@ -61,6 +61,7 @@ $pic=[
                     class="container-fluid"
                     type="title"
                     name="title"
+                    maxlength="15"
                     required
                 />
             </div>
@@ -70,17 +71,19 @@ $pic=[
                     class="container-fluid"
                     type="text"
                     name="text"
+                    maxlength="120"
                     required
                 />
             </div>
         </div>
         <div class="row text-center p-2">
-            <input id="submit" class="container-fluid" style="background-color:#19BFE0" type="submit" name="submit" value="Submit me!"/>
+            <input id="submit" class="container-fluid text-white" style="background-color:#19BFE0" type="submit" name="submit" value="Submit me!"/>
         </div>
     </div>
 </form>
 <script>
 var passedArray = <?php echo json_encode($pic); ?>;
+console.log(passedArray);
 var colorPicker = document.getElementById("colorpicker");
 
 function changeColor(){
@@ -98,6 +101,6 @@ function changeColor(){
     }
 }
 document.getElementById('submit').addEventListener('click',
-    ()=>{document.getElementById("pic").value=passedArray}
+    ()=>{document.getElementById("pic").value=(JSON.stringify(passedArray))}
 );
 </script>

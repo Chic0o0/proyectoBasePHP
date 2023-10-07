@@ -25,6 +25,8 @@ class DBConnection{
         return password_verify($password, $row["password"]);
     }
 
+    //Methods for user
+
     public function createUser(object $userData){
         $this->connect();
         $sql = "INSERT INTO users (email, password, name, surname, age, phone, super) VALUES (?,?,?,?,?,?,?)";
@@ -75,6 +77,7 @@ class DBConnection{
     }
 
     //Methods for superuser
+
     public function readAllUsers(){
         if($_SESSION["super"]){
             $this->connect();
@@ -116,5 +119,31 @@ class DBConnection{
         $this->pdo->prepare($sql)->execute([$email]);
         $this->pdo->commit();
         $this->disconnect();
+    }
+
+    //Methods for pictures
+
+    public function createPicture(object $picture){
+        $this->connect();
+        $sql = "INSERT INTO pictures (title, text, grid, user_email) VALUES (?,?,?,?)";
+        $this->pdo->beginTransaction();
+        $this->pdo->prepare($sql)->execute([$picture->getTitle(), $picture->getText(),
+            json_encode($picture->getGrid()), $picture->getUserEmail()]);
+        $this->pdo->commit();
+        $this->disconnect();
+    }
+
+    public function readAllPictures(){
+        $this->connect();
+        $sql = "SELECT title, text, grid FROM pictures";
+        $statement=$this->pdo->prepare($sql);
+        $statement->execute();
+        $rows=($statement->fetchAll());
+        $this->disconnect();
+        $rowsParsed=array();
+        foreach ($rows as $row) {
+            array_push($rowsParsed, $row);
+        }
+        return $rowsParsed;
     }
 }

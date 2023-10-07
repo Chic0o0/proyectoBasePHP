@@ -1,39 +1,24 @@
 <?php
-$a=[1, 2, 3]; //pictures
-$b=[
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"],
-    ["19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0",""],
-    ["","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0","","19BFE0"]
-]; //pixels
+require_once "..\db\DBConnection.php";
+
+$pictures=(new DBConnection)->readAllPictures();
+
 ?>
 <div class="container">
     <div class="row">
         <?php
-        foreach ($a as $ab) {
+        foreach ($pictures as $picture) {
         ?>
             <div class="post col-xxl-4 col-lg-6 d-sm-flex" style="gap:5%;margin-bottom:2%;">
                 <div class="border border-3 pic" style="width:240px">
         <?php
-                foreach ($b as $bb) {
+                foreach (json_decode($picture["grid"]) as $row) {
         ?> 
                     <div class="line" style="display:flex;">
         <?php
-                    foreach ($bb as $bbb) {
+                    foreach ($row as $pixel) {
         ?>
-                        <div class="pixel" style="background-color:#<?php echo $bbb?>;width:15px;height:15px"></div>
+                        <div class="pixel" style="background-color:<?php echo $pixel?>;width:15px;height:15px"></div>
         <?php
                     }
         ?>
@@ -43,8 +28,8 @@ $b=[
         ?>
                 </div>
                 <div class="text">
-                    <h2>Title</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et facilisis libero. Proin eu congue ex, et placerat nisi.</p>
+                    <h2><?php echo $picture["title"]?></h2>
+                    <p><?php echo $picture["text"]?></p>
                 </div>
             </div>
         <?php

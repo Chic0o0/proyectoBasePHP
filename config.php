@@ -9,5 +9,5 @@ class Config {
     const EMAIL_REGEX ="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
     const PASSWORD_REGEX =".{8,}";
     const PHONE_REGEX ="[0-9]{9}";
-    const HEX_REGEX = "^#[A-Fa-f0-9]{6}$";
+    const HEX_REGEX = "^#([A-Fa-f0-9]{6})$";
 }

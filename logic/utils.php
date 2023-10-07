@@ -36,9 +36,11 @@ class Utils{
     }
 
     public static function checkHexCodes(array $array):bool{
-        foreach ($array as $key => $value) {
-            if(!preg_match(Config::HEX_REGEX, $value)){
-                return false;
+        foreach ($array as $row) {
+            foreach ($row as $pixel) {
+                if(!preg_match("/".Config::HEX_REGEX."/", $pixel) && !empty($pixel)){
+                    return false;
+                }
             }
         }
         return true;
